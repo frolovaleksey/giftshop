@@ -1,0 +1,13 @@
+<div class="form-group {{ $errors->has($name) ? 'has-error' : ''}}">
+    {!! Form::label($name, $label, ['class' => 'control-label col-md-3'], false ) !!}
+    <div class="col-md-4">
+        @if( $type == 'password')
+        {!! Form::$type($name, $options) !!}
+        @else
+        {!! Form::$type($name, $value, $options) !!}
+        @endif
+
+        {!! FormHelper::error($name) !!}
+    </div>
+    {!! $msg !!}
+</div>

@@ -1,0 +1,39 @@
+.example-list {
+	overflow: hidden;
+	margin: 0 0 50px;
+	width: 100%;
+}
+.toggle-block {
+	border: 1px solid #aaa;
+	padding: 10px;
+	width: 300px;
+	margin: 0 20px 20px 0;
+}
+.toggle-block .opener{
+	height: 1%;
+	display: block;
+	padding: 3px 10px;
+	background: #eee;
+	text-decoration: none;
+}
+.toggle-block .opener:hover {
+	text-decoration: none;
+}
+.toggle-block .opener em {
+	font-style: normal;
+	display: none;
+}
+.expanded .opener em {
+	display: inline;
+}
+.expanded .opener span {
+	display: none;
+}
+.toggle-block .slide { /* recommended styles */
+	position: relative;
+	overflow: hidden;
+	width: 300px;
+}
+.toggle-block .slide p {
+	margin: 0;
+}
