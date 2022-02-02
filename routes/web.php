@@ -35,8 +35,14 @@ if( !function_exists('call_routes')) {
                 Route::put('roles/set_permission/{id}', 'RoleController@setPermission')->name('role_set_permission');
                 Route::put('roles/copy_permission/{id}', 'RoleController@copyPermission')->name('role.copy_permission');
 
+
+                Route::post('fields/{type}/{id?}', 'FieldController@getFields')->name('field.get_fields');
+                Route::delete('field/{id}', 'FieldController@destroyMediaField')->name('field.destroy_media_field');
+
                 Route::resource('page', 'PageController');
-                Route::post('page/{type}/{id?}', 'PageController@getFields')->name('page.get_fields');
+                Route::resource('post', 'PostController');
+                Route::resource('category', 'CategoryController');
+
             });
 
         });

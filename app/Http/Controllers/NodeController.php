@@ -93,15 +93,4 @@ abstract class NodeController extends Controller
         return redirect()->route($this->nodeObj::getBaseRoute().'.index');
     }
 
-    public function getFields(Request $request, $type, $id=null)
-    {
-        if($id===null){
-            $page = new $this->nodeObj();
-        }else{
-            $page = $this->nodeObj::find($id);
-        }
-
-        $page->template = $request->tpl;
-        return $page->renderFields();
-    }
 }

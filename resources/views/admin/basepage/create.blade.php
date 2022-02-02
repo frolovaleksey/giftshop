@@ -6,7 +6,7 @@
 
     @component('global.form')
 
-        {!! Form::open(['route' => [$item::getBaseRoute().'.store'], 'method' => 'POST', 'class' => 'form-horizontal node_form']) !!}
+        {!! Form::open(['route' => [$item::getBaseRoute().'.store'], 'method' => 'POST', 'files' => true, 'class' => 'form-horizontal node_form']) !!}
 
         @include($item::getBaseViewFolder().'.form')
 

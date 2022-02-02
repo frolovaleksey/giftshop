@@ -28,6 +28,7 @@ function gsNodeFieldsInit() {
         let data = {
             '_token': nodeForm.find('input[name="_token"]').val(),
             'tpl' : template.val(),
+            'obj' : nodeForm.find('.form_obj').data('form_obj'),
         };
 
         fields.html(

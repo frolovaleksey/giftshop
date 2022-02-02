@@ -4,12 +4,14 @@
 namespace App;
 
 
+use App\Interfaces\MediaInterface;
 use App\Traits\FilableTrait;
+use App\Traits\MediaTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Nanigans\SingleTableInheritance\SingleTableInheritanceTrait;
 
-abstract class Node extends Model
+abstract class Node extends Model implements MediaInterface
 {
     use SingleTableInheritanceTrait;
     use FilableTrait;
@@ -21,6 +23,7 @@ abstract class Node extends Model
     protected static $singleTableTypeField = 'type';
     protected static $singleTableSubclasses = [
         Page::class,
+        Post::class,
     ];
 
     public $templates = [];
@@ -33,6 +36,18 @@ abstract class Node extends Model
     public abstract static function getBaseLoc();
 
     public abstract static function initFields();
+
+    public function getFilesDirectory()
+    {
+        return 'upload/node/'.$this->id;
+    }
+
+    public function author()
+    {
+        return $this->belongsTo('App\User', 'author_id')->withDefault([
+            'name' => '--'
+        ]);
+    }
 
     public function getValidationRules()
     {
@@ -89,12 +104,27 @@ abstract class Node extends Model
             $this->parent_id = $request->parent_id;
         }
 
+        if(isset($this->taxonomies) && count($this->taxonomies) > 0){
+            $this->saveTaxonomies($request);
+        }
+
         $this->slug = $this->prepareSlugByField($request, 'title');
         $this->save();
 
         $this->saveFields($request);
 
         return $this;
+    }
+
+    public function saveTaxonomies($request)
+    {
+        foreach ($this->taxonomies as $taxonomy) {
+            $tax = new $taxonomy();
+            $taxName = $tax->getTaxonomyType();
+            if($request->has($taxName)){
+                $this->categories()->sync($request->$taxName);
+            }
+        }
     }
 
     public function prepareSlugByField(Request $request, $field)

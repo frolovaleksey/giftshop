@@ -5,9 +5,12 @@ namespace App\Traits;
 
 
 use App\Field;
+use App\Media;
 
 trait FilableTrait
 {
+    use MediaTrait;
+
     protected $loadedFields=null;
 
     public function getFieldsValidationRules()
@@ -42,6 +45,7 @@ trait FilableTrait
     {
         $view = '';
         foreach ($this->getTemplateFields() as $field) {
+            $field->setFieldObj($this->getField($field->getName()));
             $field->setValue(  $this->getFieldValue($field->getName())  );
             $view.= $field->get();
         }
@@ -51,6 +55,18 @@ trait FilableTrait
     public function saveFields($request)
     {
         foreach($this->getTemplateFields() as $key => $field){
+            $this->saveFieldValueFromRequest($field, $key, $request);
+        }
+    }
+
+    public function saveFieldValueFromRequest($field, $key, $request)
+    {
+        if( $field->isMedia() ){
+            $media = $this->saveMediaFromRequest($request, $key);
+            if($media !== null) {
+                $this->saveField($key, $media->id);
+            }
+        }else{
             $this->saveField($key, $field->getValueFromRequest($request));
         }
     }

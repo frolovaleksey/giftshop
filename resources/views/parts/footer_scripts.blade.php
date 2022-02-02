@@ -48,14 +48,12 @@
 <script type="text/javascript"  src="{{url('/')}}/js/modal_delete.js?v={{$script_date}}"></script>
 <script type="text/javascript"  src="{{url('/')}}/js/nodeFields.js?v={{$script_date}}"></script>
 
-
-
-
 <script>
     jQuery(document).ready(function() {
         Metronic.init(); // init metronic core components
         Layout.init(); // init current layout
         ComponentsPickers.init();
+
     });
 </script>
 </body>

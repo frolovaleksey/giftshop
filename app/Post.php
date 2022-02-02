@@ -1,29 +1,37 @@
 <?php
 
-
 namespace App;
 
 
-class Page extends Node
+use App\Relations\HasTaxRelations;
+use App\Relations\TaxRelation;
+
+class Post extends Node
 {
-    protected static $singleTableType = 'page';
+    protected static $singleTableType = 'post';
     protected $table = 'nodes';
 
     public $templates = [
         'base' => 'base',
-        'text' => 'text',
     ];
 
-    public $parrentable = true;
+    public $taxonomies = [
+        Category::class,
+    ];
+
+    public function categories()
+    {
+        return $this->morphToMany('App\Category', 'taxable', 'taxables', 'taxable_id', 'tax_id'  );
+    }
 
     public function getFilesDirectory()
     {
-        return 'upload/page/'.$this->id;
+        return 'upload/post/'.$this->id;
     }
 
     public static function getBaseRoute()
     {
-        return 'page';
+        return 'post';
     }
 
     public static function getBaseViewFolder()
@@ -33,7 +41,7 @@ class Page extends Node
 
     public static function getBaseLoc()
     {
-        return 'page';
+        return 'post';
     }
 
     public static function initFields()
@@ -43,25 +51,11 @@ class Page extends Node
             'required'
         );
 
-        $content = new \App\Helpers\FormGroup\Text('content');
-        $info    = new \App\Helpers\FormGroup\Text('info');
-        $decs    = new \App\Helpers\FormGroup\Text('decs');
-        $image    = new \App\Helpers\FormGroup\Image('image');
-
         // template => [field1, field2, ...]
         return [
             'base' => [
                 'title' => $title,
-                'content' => $content,
-                'info' => $info,
-                'image' => $image,
-            ],
-            'text' => [
-                'title' => $title,
-                'decs' => $decs,
             ],
         ];
     }
-
-
 }

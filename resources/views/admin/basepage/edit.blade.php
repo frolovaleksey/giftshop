@@ -6,7 +6,7 @@
 
     @component('global.form')
 
-        {!! Form::model($item, ['route' => [$item::getBaseRoute().'.update', $item], 'method' => 'PUT', 'class' => 'form-horizontal node_form']) !!}
+        {!! Form::model($item, ['route' => [$item::getBaseRoute().'.update', $item], 'files' => true, 'method' => 'PUT', 'class' => 'form-horizontal node_form']) !!}
 
         @include($item::getBaseViewFolder().'.form')
 

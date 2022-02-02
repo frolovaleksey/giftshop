@@ -42,8 +42,21 @@
         'route' => 'page.index',
     ];
 
+    $menu_page_items_post = [
+        'title' => __('post.posts'),
+        'route' => 'post.index',
+    ];
+
+
+    $menu_page_items_category = [
+        'title' => __('category.categories'),
+        'route' => 'category.index',
+    ];
+
     $menu_page_items = [
         $menu_page_items_page,
+        $menu_page_items_post,
+        $menu_page_items_category,
     ];
 
     $menu_pages = [

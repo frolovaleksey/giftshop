@@ -1,29 +1,35 @@
 <?php
 
-
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 
-class Page extends Node
+class Category extends Taxonomy
 {
-    protected static $singleTableType = 'page';
-    protected $table = 'nodes';
+    protected static $singleTableType = 'category';
+    protected $table = 'taxonomies';
 
+    /*
+    public $templates = [
+        'base' => 'base',
+    ];
+    */
     public $templates = [
         'base' => 'base',
         'text' => 'text',
     ];
 
+
     public $parrentable = true;
 
     public function getFilesDirectory()
     {
-        return 'upload/page/'.$this->id;
+        return 'upload/category/'.$this->id;
     }
 
     public static function getBaseRoute()
     {
-        return 'page';
+        return 'category';
     }
 
     public static function getBaseViewFolder()
@@ -33,9 +39,25 @@ class Page extends Node
 
     public static function getBaseLoc()
     {
-        return 'page';
+        return 'category';
     }
 
+    /*
+    public static function initFields()
+    {
+        $title   = new \App\Helpers\FormGroup\Text('title');
+        $title->setValidationRules(
+            'required'
+        );
+
+        // template => [field1, field2, ...]
+        return [
+            'base' => [
+                'title' => $title,
+            ],
+        ];
+    }
+    */
     public static function initFields()
     {
         $title   = new \App\Helpers\FormGroup\Text('title');
@@ -62,6 +84,4 @@ class Page extends Node
             ],
         ];
     }
-
-
 }

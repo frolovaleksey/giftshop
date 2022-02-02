@@ -20,11 +20,18 @@ abstract class FormGroupElement
     protected $thirdCol=null;
     protected $view=null;
     protected $validationRules=null;
+    protected $media=false;
+    protected $fieldObj=null;
 
     public function __construct($name)
     {
         $this->name = $name;
         return $this;
+    }
+
+    public function isMedia()
+    {
+        return $this->media;
     }
 
     public function setOptions($options)
@@ -67,6 +74,17 @@ abstract class FormGroupElement
     {
         $this->validationRules = $validationRules;
         return $this;
+    }
+
+    public function setFieldObj($fieldObj)
+    {
+        $this->fieldObj = $fieldObj;
+        return $this;
+    }
+
+    public function getFieldObj()
+    {
+        return $this->fieldObj;
     }
 
     public function getValidationRules()
@@ -138,6 +156,7 @@ abstract class FormGroupElement
             'parametres' => $this->attr,
             'errorKey' => $this->errorKey,
             'thirdCol' => $this->thirdCol,
+            'fieldObj' => $this->fieldObj,
         ]
         );
     }
