@@ -1,0 +1,1 @@
+(function(window,document,$,undefined){var WCCH={init:function(){WCCH.trackHistory();},trackHistory:function(){$.ajax({type:"POST",url:wcch.ajaxUrl,data:{action:'wcch_track_history',page_url:wcch.currentUrl,referrer:document.referrer},success:function(response){}}).fail(function(response){});}};WCCH.init();})(window,document,jQuery);

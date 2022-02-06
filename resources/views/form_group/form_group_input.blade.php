@@ -1,6 +1,6 @@
 <div class="form-group {{ $errors->has($errorKey) ? 'has-error' : ''}}">
     {!! Form::label($name, $label, ['class' => 'control-label col-md-3'], false ) !!}
-    <div @if($thirdCol !== null) class="col-md-4" @else <div class="col-md-8"> @endif
+    <div @if($thirdCol !== null) class="col-md-4" @else class="col-md-8"> @endif
         {!! Form::$fieldType($name, $value, $parametres) !!}
         {!! FormHelper::error($errorKey) !!}
     </div>

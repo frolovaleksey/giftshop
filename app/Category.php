@@ -16,7 +16,6 @@ class Category extends Taxonomy
     */
     public $templates = [
         'base' => 'base',
-        'text' => 'text',
     ];
 
 
@@ -42,22 +41,6 @@ class Category extends Taxonomy
         return 'category';
     }
 
-    /*
-    public static function initFields()
-    {
-        $title   = new \App\Helpers\FormGroup\Text('title');
-        $title->setValidationRules(
-            'required'
-        );
-
-        // template => [field1, field2, ...]
-        return [
-            'base' => [
-                'title' => $title,
-            ],
-        ];
-    }
-    */
     public static function initFields()
     {
         $title   = new \App\Helpers\FormGroup\Text('title');
@@ -77,10 +60,6 @@ class Category extends Taxonomy
                 'content' => $content,
                 'info' => $info,
                 'image' => $image,
-            ],
-            'text' => [
-                'title' => $title,
-                'decs' => $decs,
             ],
         ];
     }

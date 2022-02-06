@@ -78,12 +78,41 @@
     ];
 
 
+    $menu_shop_items_product = [
+        'title' => __('shop.products'),
+        'route' => 'product.index',
+    ];
+
+    $menu_shop_items = [
+        $menu_shop_items_product,
+    ];
+
+    $menu_shop = [
+        'title' => 'Shop <i class="fa fa-angle-down"></i>',
+        'li_attr' => [
+            'class' => 'menu-dropdown classic-menu-dropdown'
+        ],
+        'a_attr'  => [
+            'data-hover' => 'megamenu-dropdown',
+            'data-close-others' => 'true',
+            'data-toggle' => 'dropdown',
+        ],
+        'sub' => [
+            'ul_attr' => [
+                'class' => 'dropdown-menu pull-left',
+            ],
+            'items'   => $menu_shop_items,
+        ],
+    ];
+
+
 
     /*
      * ---------------------- first level ----------------------
      */
     $menu_items[] = $menu_admin;
     $menu_items[] = $menu_pages;
+    $menu_items[] = $menu_shop;
 
 
 @endphp
@@ -92,6 +121,8 @@
 
     {!! HtmlHelper::menu($menu_items) !!}
 
+    @if( config('system')['localisation'] )
     <li>{{get_localisation_link()}}</li>
+    @endif
 
 </ul>

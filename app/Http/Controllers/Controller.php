@@ -83,7 +83,7 @@ class Controller extends BaseController
         return $query;
     }
 
-    public function prepeareSpecialQuery($query, $request)
+    protected function prepeareSpecialQuery($query, Request $request)
     {
         return $query;
     }

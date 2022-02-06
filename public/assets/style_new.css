@@ -1,0 +1,81 @@
+.gallery-holder .gholder {
+    width: 100%;
+}
+.gallery-holder .gholder:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+
+.gallery-holder .gmask {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    line-height: 73px;
+}
+.gallery-holder .gmask .slideset {
+    list-style: none;
+    width: 99999px;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.gallery-holder .gmask .slide {
+    white-space: nowrap;
+    float: left;
+    text-align: center;
+}
+
+.gallery-holder a.btn-prev,
+.gallery-holder a.btn-next {
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    float: left;
+    width: 30px;
+    margin: 35px 10px 0 0;
+    height: 30px;
+    position: absolute;
+}
+
+.gallery-holder a.btn-prev{
+    left: 15px;
+    top: 12px;
+}
+.gallery-holder a.btn-next{
+    right: 15px;
+    top: 12px;
+}
+
+.gallery-holder a.btn-next {
+    margin: 35px 0 0 10px;
+    float: right;
+}
+
+@media only screen and (max-width: 480px) {
+    .gallery-holder .gmask .slide {font-size:50px;}
+}
+
+.slideset .slide {
+    font-size: 36px;
+    font-weight: bold;
+    background: #c1c1c1;
+    height: 74px;
+    color: #fff;
+    border-radius: 3px;
+    width: 124px;
+    margin-right: 8px;
+}
+.btn-prev > span,  .btn-next > span{
+    font-size: 27pt;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 4px;
+    color: #fff;
+}

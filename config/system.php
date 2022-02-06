@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'start_page' => 'ru/',
+    'localisation' => false,
+    'start_page' => '/',  // start_page' => 'ru/'
 ];

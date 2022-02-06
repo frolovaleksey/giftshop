@@ -5,7 +5,9 @@ namespace App\Traits;
 
 
 use App\Field;
+use App\Helpers\ImageHelper;
 use App\Media;
+use Illuminate\Http\Request;
 
 trait FilableTrait
 {
@@ -41,6 +43,19 @@ trait FilableTrait
         return $tplFields;
     }
 
+    public function getTemplateField($key)
+    {
+        $fields = $this->getTemplateFields();
+        return $fields[$key];
+    }
+
+    public function getImage($key)
+    {
+        $field = $this->getTemplateField($key);
+        $fieldValue = $this->getFieldValue($field->getName());
+        return new ImageHelper($fieldValue);
+    }
+
     public function renderFields()
     {
         $view = '';
@@ -50,6 +65,14 @@ trait FilableTrait
             $view.= $field->get();
         }
         return $view;
+    }
+
+    public function renderField($key)
+    {
+        $field = $this->getTemplateField($key);
+        $field->setFieldObj($this->getField($field->getName()));
+        $field->setValue(  $this->getFieldValue($field->getName()) );
+        return $field->get();
     }
 
     public function saveFields($request)
@@ -105,5 +128,54 @@ trait FilableTrait
             return null;
         }
         return $field->value;
+    }
+
+    public function saveRequest(Request $request)
+    {
+        if ($this->hasTemplate()) {
+            $this->template = $request->template;
+        }
+
+        if ($this->parrentable) {
+            $this->parent_id = $request->parent_id;
+        }
+
+        if(isset($this->taxonomies) && count($this->taxonomies) > 0){
+            $this->saveTaxonomies($request);
+        }
+
+        $this->slug = $this->prepareSlugByField($request, 'title');
+
+        $this->fill($request->all());
+
+        $this->save();
+
+        $this->saveFields($request);
+
+        return $this;
+    }
+
+    public function prepareSlugByField(Request $request, $field)
+    {
+        if ($request->slug) {
+            $tempSlug = strtolower(\App\Helpers\UsefulHelper::transliterate($request->slug));
+        } else {
+            $tempSlug = strtolower(\App\Helpers\UsefulHelper::transliterate($request->$field));
+        }
+
+        if($tempSlug === null ){
+            $tempSlug = 'slug';
+        }
+
+        return $this->getUniqueSlug($tempSlug, get_class($this));
+    }
+
+    public function getUniqueSlug($tempSlug, $obj)
+    {
+        if ($obj::where('slug', $tempSlug)->where('id', '!=', $this->id)->first() === null) {
+            return $tempSlug;
+        } else {
+            return $this->getUniqueSlug($tempSlug . '_1', $obj);
+        }
     }
 }
