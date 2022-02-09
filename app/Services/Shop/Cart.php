@@ -8,6 +8,14 @@ use App\Product;
 
 class Cart
 {
+    protected $products = null;
+    protected $productIds = null;
+
+    public function __construct($app=null)
+    {
+        $this->productIds = session('cart');
+    }
+
     public static function addProduct(Product $product)
     {
         $request = request();
@@ -30,11 +38,23 @@ class Cart
         $request->session()->save();
     }
 
-    public static function getProducts()
+    public function getProducts()
     {
-        $productIds = session('cart');
-        $idsOrdered = implode(',', $productIds);
-        return Product::whereIn('id', $productIds)->orderByRaw("FIELD (id, $idsOrdered)")->with('fields')->get();
+        if($this->products !== null ){
+            return $this->products;
+        }
+
+        if($this->productIds === null ){
+            return null;
+        }
+
+        $idsOrdered = implode(',', $this->productIds);
+        $this->products = Product::whereIn('id', $this->productIds)->orderByRaw("FIELD (id, $idsOrdered)")
+            ->with('fields')
+            //->with('media')
+            ->get();
+
+        return $this->products;
     }
 
     public static function getItemsCount()
@@ -48,12 +68,17 @@ class Cart
         return 0;
     }
 
-    public static function getCartTotal()
+    public function getCartTotal()
     {
+        if($this->productIds === null ){
+            return 0;
+        }
+
         $total = 0;
-        foreach (self::getProducts() as $product) {
+        foreach ($this->getProducts() as $product) {
             $total+= $product->getClientPrice();
         }
         return $total;
     }
+
 }

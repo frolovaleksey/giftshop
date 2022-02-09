@@ -178,6 +178,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
+        \App\Providers\CartServiceProvider::class,
     ],
 
     /*
@@ -236,6 +237,7 @@ return [
         'BladeHelper'    => App\Helpers\BladeHelper::class,
         'FormHelper'    => App\Helpers\FormHelper::class,
 
+        'Cart' => \App\Services\Shop\CartFacade::class,
     ],
 
 ];

@@ -6,3 +6,9 @@ $sale_price->setRequired()
 ;
 @endphp
 {!! $sale_price->get() !!}
+
+{!! $item->renderField('faq') !!}
+
+
+{!! $item->renderField('related_product') !!}
+

@@ -18,7 +18,7 @@ class CreateFieldsTable extends Migration
             $table->integer('filabletable_id');
             $table->string('filabletable_type', 255);
             $table->string('fkey', 255);
-            $table->longText('value');
+            $table->longText('value')->nullable();
             $table->timestamps();
         });
     }

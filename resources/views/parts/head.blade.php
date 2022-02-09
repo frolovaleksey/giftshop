@@ -27,7 +27,11 @@
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
 
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <?php /*
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/global/plugins/select2/select2.css"/>
+  */?>
+    <link href="{{url('/')}}/js/plugins/select2.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/global/plugins/jquery-multi-select/css/multi-select.css"/>
 

@@ -21,7 +21,7 @@ $new= true;
                                 <div class="gmask">
                                     <div class="slideset">
                                         @php
-                                                $products = \App\Services\Shop\Cart::getProducts();
+                                            $products = Cart::getProducts();
                                         @endphp
 
                                         @for($i=0; $i<10; $i++)
@@ -54,7 +54,7 @@ $new= true;
                 <a class="more"
                    href="https://stips.cz/cart/checkout/">
                     <span class="cart-word">Košík</span><br>
-                    <span id="cart-highest-price">{{ \App\Services\Shop\Cart::getCartTotal() }}</span>,Kč
+                    <span id="cart-highest-price">{{ Cart::getCartTotal() }}</span>,Kč
                 </a>
             </div>
         </div>

@@ -4,8 +4,12 @@
 namespace App;
 
 
+use App\Traits\FrontPageTrait;
+
 class Page extends Node
 {
+    use FrontPageTrait;
+
     protected static $singleTableType = 'page';
     protected $table = 'nodes';
 
