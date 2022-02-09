@@ -5,9 +5,12 @@ namespace App;
 
 use App\Relations\HasTaxRelations;
 use App\Relations\TaxRelation;
+use App\Traits\FrontPageTrait;
 
 class Post extends Node
 {
+    use FrontPageTrait;
+
     protected static $singleTableType = 'post';
     protected $table = 'nodes';
 

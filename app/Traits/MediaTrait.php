@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Storage;
 
 trait MediaTrait
 {
-    public function getFilename($request, $docFileInfo)
+    public function media()
+    {
+        return $this->morphMany('App\Media','mediable' );
+    }
+
+    public function getFilename($docFileInfo)
     {
         return $docFileInfo['filename'];
     }
@@ -22,9 +27,11 @@ trait MediaTrait
             return null;
         }
 
+        $storage = Storage::disk( Media::getDisk() );
+
         $file = $this->getFilesDirectory().'/'.$document->filename.'.'.$document->format;
-        if( Storage::exists( $file) ){
-            return Storage::url($file);
+        if( $storage->exists( $file) ){
+            return $storage->url($file);
         }else{
             return null;
         }
@@ -35,17 +42,19 @@ trait MediaTrait
     {
         //$filename = strtolower($filename);
 
-        if( ! Storage::has($directory.'/'.$filename.'.'.$extention)){
+        $storage = Storage::disk( Media::getDisk() );
+
+        if( ! $storage->has($directory.'/'.$filename.'.'.$extention)){
             return $filename;
         }
 
         $version = 1;
-        if( ! Storage::has($directory.'/'.$filename.'_v'.$version.'.'.$extention) ){
+        if( !$storage->has($directory.'/'.$filename.'_v'.$version.'.'.$extention) ){
             return $filename.'_v'.$version;
         }
 
         $version++;
-        while ( Storage::has($directory.'/'.$filename.'_v'.$version.'.'.$extention) )
+        while ( $storage->has($directory.'/'.$filename.'_v'.$version.'.'.$extention) )
         {
             $version++;
         }
@@ -59,15 +68,24 @@ trait MediaTrait
             return;
         }
 
+        return $this->saveFile($file);
+    }
+
+    public function saveFile($file)
+    {
+        if($file === null){
+            return null;
+        }
+
         $folder        = $this->getFilesDirectory();
-        $mediaFileInfo = pathinfo($request->$fileFieldName->getClientOriginalName());
-        $filename      = $this->getFilename($request, $mediaFileInfo);
-        $cleanFilename = $this->checkFileExisting ( $filename, $mediaFileInfo['extension'], $folder );
+        $mediaFileInfo = pathinfo( $file->getClientOriginalName());
+        $filename      = $this->getFilename($mediaFileInfo);
+        $cleanFilename = $this->checkFileExisting( $filename, $mediaFileInfo['extension'], $folder );
         $mediaFile     = $file->storeAs(
             $folder,
             $cleanFilename.'.'.$mediaFileInfo['extension'],
             Media::getDisk()
-            );
+        );
 
         return $this->createMedia($mediaFile, $mediaFileInfo);
     }

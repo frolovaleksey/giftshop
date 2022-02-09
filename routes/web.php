@@ -42,7 +42,9 @@ if( !function_exists('call_routes')) {
 
 
                 Route::post('fields/{type}/{id?}', 'Admin\FieldController@getFields')->name('field.get_fields');
+                Route::post('repeaterfields/{type}/{id?}', 'Admin\FieldController@getRepeaterFields')->name('field.get_repeater_fields');
                 Route::delete('field/{id}', 'Admin\FieldController@destroyMediaField')->name('field.destroy_media_field');
+                Route::get('relation/{model}/{field}/{id?}', 'Admin\FieldController@getRelationOptions')->name('field.get_relation_options');
 
                 Route::resource('page', 'Admin\PageController');
                 Route::resource('post', 'Admin\PostController');
@@ -59,6 +61,18 @@ if( !function_exists('call_routes')) {
                 Route::get('add/{id}', 'Front\CartController@addProduct')->name('cart.add');
                 Route::get('delete/{id}', 'Front\CartController@deleteProduct')->name('cart.delete');
             });
+
+
+            Route::group(['prefix' => 'post'], function () {
+                Route::get('{slug}', 'Front\PostController@show')->name('post.front.show');
+            });
+
+            Route::group(['prefix' => 'page'], function () {
+                Route::get('{slug}', 'Front\PageController@show')->name('page.front.show');
+            });
+
+
+            Route::get('testp', 'TestController@index')->name('test.index');
 
         });
 

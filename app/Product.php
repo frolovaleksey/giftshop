@@ -72,12 +72,36 @@ class Product extends Model implements MediaInterface, PageInterface
 
         $main_image    = new \App\Helpers\FormGroup\Image('main_image');
 
+        $faq    = new \App\Helpers\FormGroup\Repeater('faq');
+        $faq->setFields(
+            [
+                'question' => new \App\Helpers\FormGroup\Text('question'),
+                'answer' => new \App\Helpers\FormGroup\Text('answer'),
+            ]
+        );
+
+        $gallery    = new \App\Helpers\FormGroup\Repeater('gallery');
+        $gallery->setFields(
+            [
+                'image' => new \App\Helpers\FormGroup\Image('image')
+            ]
+        );
+
+        $relatedProduct = new \App\Helpers\FormGroup\Relation('related_product');
+        $relatedProduct->setRelatedModel('App\Product')
+        ->setLabel('Related Product')
+        ;
+
         // template => [field1, field2, ...]
         return [
             'base' => [
                 'title' => $title,
+                'related_product' => $relatedProduct,
 
                 'main_image' => $main_image,
+                'gallery' => $gallery,
+
+                'faq' => $faq,
             ],
         ];
     }

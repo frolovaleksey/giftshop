@@ -24,7 +24,13 @@
 <script type="text/javascript" src="{{url('/')}}/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
 
 <script type="text/javascript" src="{{url('/')}}/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+<?php /*
 <script type="text/javascript" src="{{url('/')}}/global/plugins/select2/select2.min.js"></script>
+*/ ?>
+<script type="text/javascript" src="{{url('/')}}/js/plugins/select2.min.js"></script>
+
+
 <script type="text/javascript" src="{{url('/')}}/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="{{url('/')}}/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
 <script type="text/javascript" src="{{url('/')}}/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
@@ -47,13 +53,18 @@
 <script type="text/javascript"  src="{{url('/')}}/js/ajax_table.js?v={{$script_date}}"></script>
 <script type="text/javascript"  src="{{url('/')}}/js/modal_delete.js?v={{$script_date}}"></script>
 <script type="text/javascript"  src="{{url('/')}}/js/nodeFields.js?v={{$script_date}}"></script>
+<script type="text/javascript"  src="{{url('/')}}/js/relationFields.js?v={{$script_date}}"></script>
+
+
+
+
+
 
 <script>
     jQuery(document).ready(function() {
         Metronic.init(); // init metronic core components
         Layout.init(); // init current layout
         ComponentsPickers.init();
-
     });
 </script>
 </body>

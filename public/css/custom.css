@@ -5,3 +5,17 @@
 .small_input{
     width: 140px;
 }
+
+.repeater_block{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    background-color: #fff;
+    cursor: move;
+}
+
+.delete_repeater_block .fa{
+    color: red;
+    font-size: 25px;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/.env" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Field.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/FieldRelation.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Helpers/FormGroup/FormGroupElement.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Helpers/FormGroup/Relation.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Helpers/FormGroup/Repeater.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Http/Controllers/Admin/FieldController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Http/Controllers/Admin/NodeController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Http/Controllers/TestController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Node.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Page.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Post.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Product.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Traits/FilableTrait.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Traits/MediaTrait.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/migrations/2022_01_28_114744_create_fields_table.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/migrations/2022_02_07_143234_update_fields_parent_order.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/migrations/2022_02_09_133402_create_field_relations_table.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/css/custom.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/js/nodeFields.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/js/relationFields.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/test/1.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/test/movies.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/admin/product/tabs/tab_general.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/admin/product/tabs/tab_images.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/form_group/form_group_holder.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/form_group/form_group_image.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/form_group/form_group_input.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/form_group/form_group_relation.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/form_group/form_group_repeater.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/form_group/form_group_select.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/form_group/repeater/block.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/form_group/repeater/holder.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/parts/footer_scripts.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/parts/head.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/test.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../lrcms.loc/info.php" charset="windows-1251" />
+    <file url="PROJECT" charset="windows-1251" />
+  </component>
+</project>

@@ -1,3 +1,4 @@
+<?php /*
 <div class="form-group {{ $errors->has($errorKey) ? 'has-error' : ''}}">
     {!! Form::label($name, $label, ['class' => 'control-label col-md-3'], false ) !!}
     <div @if($thirdCol !== null) class="col-md-4" @else class="col-md-8"> @endif
@@ -13,3 +14,6 @@
     @endif
 
 </div>
+*/ ?>
+
+@include('form_group.form_group_holder', ['fieldView' => Form::$fieldType($name, $value, $parametres) ])

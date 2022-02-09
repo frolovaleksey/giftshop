@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 abstract class FormGroupElement
 {
     protected $name;
-    protected $options=null;
+    protected $options=[];
     protected $label=null;
     protected $value=null;
     protected $attr= ['class' => 'form-control'];
@@ -21,9 +21,18 @@ abstract class FormGroupElement
     protected $view=null;
     protected $validationRules=null;
     protected $media=false;
-    protected $fieldObj=null;
+    protected $repeater=false;
+    protected $relation = false;
+    protected $fieldObj=null; // App\Field
+    protected $filableItem=null; /// App\Page  App\Post ...
 
     public function __construct($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function setName($name)
     {
         $this->name = $name;
         return $this;
@@ -32,6 +41,16 @@ abstract class FormGroupElement
     public function isMedia()
     {
         return $this->media;
+    }
+
+    public function isRepeater()
+    {
+        return $this->repeater;
+    }
+
+    public function isRelation()
+    {
+        return $this->relation;
     }
 
     public function setOptions($options)
@@ -85,6 +104,17 @@ abstract class FormGroupElement
     public function getFieldObj()
     {
         return $this->fieldObj;
+    }
+
+    public function setFilableItem($item)
+    {
+        $this->filableItem = $item;
+        return $this;
+    }
+
+    public function getFilableItem()
+    {
+        return $this->filableItem;
     }
 
     public function getValidationRules()
@@ -157,6 +187,7 @@ abstract class FormGroupElement
             'errorKey' => $this->errorKey,
             'thirdCol' => $this->thirdCol,
             'fieldObj' => $this->fieldObj,
+            'filableItem' => $this->filableItem,
         ]
         );
     }

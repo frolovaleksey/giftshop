@@ -7,6 +7,7 @@ namespace App;
 use App\Interfaces\MediaInterface;
 use App\Traits\AuthorTrait;
 use App\Traits\FilableTrait;
+use App\Traits\FrontPageTrait;
 use App\Traits\MediaTrait;
 use App\Traits\ParentTrait;
 use App\Traits\TaxonomieTrait;
@@ -23,6 +24,7 @@ abstract class Node extends Model implements MediaInterface
     use ParentTrait;
     use TemplateTrait;
     use AuthorTrait;
+
 
     /*
      * type
