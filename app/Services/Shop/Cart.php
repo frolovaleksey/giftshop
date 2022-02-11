@@ -16,14 +16,14 @@ class Cart
         $this->productIds = session('cart');
     }
 
-    public static function addProduct(Product $product)
+    public function addProduct(Product $product)
     {
         $request = request();
         $request->session()->push( 'cart', $product->id );
         $request->session()->save();
     }
 
-    public static function deleteProduct($id)
+    public function deleteProduct($id)
     {
         $productIds = session('cart');
 
@@ -57,7 +57,7 @@ class Cart
         return $this->products;
     }
 
-    public static function getItemsCount()
+    public function getItemsCount()
     {
         $productIds = session('cart');
 

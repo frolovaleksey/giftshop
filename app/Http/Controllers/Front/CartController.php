@@ -9,17 +9,17 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function addProduct($id)
+    public function addProduct($id, Cart $cart)
     {
         $product = Product::findOrFail($id);
-        Cart::addProduct($product);
+        $cart->addProduct($product);
 
         return back();
     }
 
-    public function deleteProduct($id)
+    public function deleteProduct($id, Cart $cart)
     {
-        Cart::deleteProduct($id);
+        $cart->deleteProduct($id);
         return back();
     }
 }

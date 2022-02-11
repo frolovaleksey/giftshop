@@ -6,7 +6,7 @@ $new= true;
     <a>
             <span data-toggle="collapse" data-target="#cartlist" class="cartnav">
                 <i class="fas fa-shopping-cart grey"></i>
-                <span id="cart-item-count-bubble">{{\App\Services\Shop\Cart::getItemsCount()}}</span><span class="txt">Košík</span>
+                <span id="cart-item-count-bubble">{{Cart::getItemsCount()}}</span><span class="txt">Košík</span>
             </span>
     </a>
     <div id="cartlist" class="container headslide collapse hide-mobile">
