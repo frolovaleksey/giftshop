@@ -70,7 +70,16 @@ class Cart
 
     public function hasProduct($product)
     {
-        dd('g');
+        if($this->productIds === null ){
+            return false;
+        }
+
+        $productId = $product->id;
+        $result = collect($this->productIds)->first(function ($value, $key) use ($productId) {
+            return $value == $productId;
+        });
+
+        return (int) $result;
     }
 
     public function getCartTotal()

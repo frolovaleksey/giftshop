@@ -261,11 +261,17 @@ class Product extends Model implements MediaInterface, PageInterface
 
     public function getRegularPrice()
     {
+        // stips_get_current_price(
         return $this->regular_price;
     }
 
     public function getSalePrice()
     {
         return $this->sale_price;
+    }
+
+    public function getSku()
+    {
+        return $this->sku;
     }
 }
