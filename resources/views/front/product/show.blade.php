@@ -4,9 +4,9 @@
     <div itemscope="" itemtype="http://schema.org/Product" class="container container-preset-inside">
         <div class="page-content sidebar-position-right sidebar-mobile-bottom">
 
-            <div class="stips-image-cover-layer"
-                 style="background-image:url('{{$webItem->getImage('main_image')->url()}}')">
-            </div>
+            @include('front.product.parts.schema_org')
+
+            @include('front.product.parts.main_image')
 
             <div class="stips-product-info-overlay hide-mobile">
                 <div class="container">

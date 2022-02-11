@@ -68,6 +68,11 @@ class Cart
         return 0;
     }
 
+    public function hasProduct($product)
+    {
+        dd('g');
+    }
+
     public function getCartTotal()
     {
         if($this->productIds === null ){

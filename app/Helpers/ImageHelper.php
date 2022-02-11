@@ -15,9 +15,13 @@ class ImageHelper
         $this->media = \App\Media::find($mediaId);
     }
 
-    public function url()
+    public function url($thumbnail=null)
     {
-        return $this->media->getUrl();
+        if($thumbnail === null) {
+            return $this->media->getUrl();
+        }else{
+            return $this->getSyze($thumbnail);
+        }
     }
 
     public function alt()

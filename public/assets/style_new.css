@@ -79,3 +79,11 @@
     left: 4px;
     color: #fff;
 }
+
+.admin-edit{
+    height: 30px;
+    color: #fff;
+    background-color: #000;
+    line-height: 30px;
+    padding-left: 20px;
+}

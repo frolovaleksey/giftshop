@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
 
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{url('/')}}/global/plugins/bootstrap-summernote/summernote.css"/>
     <?php /*
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/global/plugins/select2/select2.css"/>
   */?>
@@ -38,6 +39,7 @@
     <!-- END PAGE LEVEL STYLES -->
     <!-- BEGIN THEME STYLES -->
     <link href="{{url('/')}}/global/css/components-rounded.css?v={{$script_date}}" id="style_components" rel="stylesheet" type="text/css">
+
     <link href="{{url('/')}}/global/css/plugins.css" rel="stylesheet" type="text/css">
     <link href="{{url('/')}}/admin/layout3/css/layout.css" rel="stylesheet" type="text/css">
     <link href="{{url('/')}}/admin/layout3/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color">

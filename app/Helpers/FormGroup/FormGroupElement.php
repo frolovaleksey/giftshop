@@ -59,6 +59,11 @@ abstract class FormGroupElement
         return $this;
     }
 
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
     public function setLabel($label)
     {
         $this->label = $label;
@@ -171,6 +176,12 @@ abstract class FormGroupElement
         $this->prepeareMsg();
         $this->prepeareErrorKey();
         $this->prepeareThirdCol();
+    }
+
+    public function setCssClass($class)
+    {
+        $this->attr['class'] = $this->attr['class'].' '.$class;
+        return $this;
     }
 
     public function getViewOptions()

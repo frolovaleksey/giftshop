@@ -236,6 +236,7 @@ return [
         'LockHelper'    => App\Helpers\LockHelper::class,
         'BladeHelper'    => App\Helpers\BladeHelper::class,
         'FormHelper'    => App\Helpers\FormHelper::class,
+        'ShopHelper'    => App\Helpers\ShopHelper::class,
 
         'Cart' => \App\Services\Shop\CartFacade::class,
     ],

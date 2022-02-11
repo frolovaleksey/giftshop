@@ -14,6 +14,8 @@
     @endif
 
 </div>
-*/ ?>
+*/
+//dd($value);
+?>
 
 @include('form_group.form_group_holder', ['fieldView' => Form::select($name, $select_options, $value, $parametres ) ])

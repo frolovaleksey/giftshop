@@ -7,6 +7,20 @@ $sale_price->setRequired()
 @endphp
 {!! $sale_price->get() !!}
 
+
+@php
+    $expired_date = new \App\Helpers\FormGroup\Date('expired_date');
+    $expired_date
+    ->setFilableItem($item)
+    ->setLabel('Product expire date')
+    ;
+@endphp
+{!! $expired_date->get() !!}
+
+
+{!! $item->renderField('customproductsales') !!}
+
+
 {!! $item->renderField('faq') !!}
 
 

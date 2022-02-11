@@ -56,6 +56,7 @@
 <script type="text/javascript"  src="{{url('/')}}/js/relationFields.js?v={{$script_date}}"></script>
 
 
+<script type="text/javascript"  src="{{url('/')}}/global/plugins/bootstrap-summernote/summernote.min.js"></script>
 
 
 

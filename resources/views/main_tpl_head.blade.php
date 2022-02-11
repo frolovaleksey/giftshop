@@ -11,7 +11,7 @@
         <div class="container-fluid">
             <!-- BEGIN LOGO -->
             <div class="page-logo">
-                <a href="{{url('/')}}"><img src="{{url('/')}}/img/logo-1.png" height="35" alt="logo" class="logo-default"></a>
+                <a href="{{url('/')}}"><img src="{{url('/')}}/img/main_logo.svg" height="35" alt="logo" class="logo-default"></a>
             </div>
             <!-- END LOGO -->
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->

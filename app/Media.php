@@ -23,6 +23,11 @@ class Media extends Model
         return parent::delete();
     }
 
+    public function getFileName()
+    {
+        return $this->filename;
+    }
+
     public function getFileNameExt()
     {
         return $this->filename .'.'.$this->extension;
@@ -30,6 +35,6 @@ class Media extends Model
 
     public function getFileDir()
     {
-        return str_replace($this->getFileNameExt(), '', $this->url);
+        return dirname($this->url).'/';
     }
 }

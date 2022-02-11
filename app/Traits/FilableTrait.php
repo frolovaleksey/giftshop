@@ -310,6 +310,14 @@ trait FilableTrait
         if($field === null ){
             return null;
         }
+
+        // Special for select
+        $templateField = $this->getTemplateField($key);
+        if(get_class($templateField) == 'App\Helpers\FormGroup\Select'){
+            $options = $templateField->getOptions();
+            return $options[$field->value];
+        }
+
         return $field->value;
     }
 

@@ -23,6 +23,11 @@
                             </a>
                         </li>
                         <li class="">
+                            <a href="#tab_content" data-toggle="tab" aria-expanded="false">
+                                Content
+                            </a>
+                        </li>
+                        <li class="">
                             <a href="#tab_meta" data-toggle="tab" aria-expanded="false">
                                 Meta
                             </a>
@@ -37,6 +42,11 @@
                         <div class="tab-pane active" id="tab_general">
                             <div class="form-body">
                                 @include('admin.product.tabs.tab_general')
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab_content">
+                            <div class="form-body">
+                                @include('admin.product.tabs.tab_content')
                             </div>
                         </div>
                         <div class="tab-pane" id="tab_meta">

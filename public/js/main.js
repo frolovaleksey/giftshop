@@ -50,6 +50,8 @@ jQuery(document).ready(function(){
     bb_highlight_table_init();
 
     bb_commision_nopay_init();
+
+    initSummernote();
 });
 
 var gsStatusCodes = {
@@ -76,6 +78,11 @@ var gsStatusCodes = {
 function test( ) {
     alert('test');
 }
+
+function initSummernote(){
+    jQuery('.summernote').summernote({height: 300});
+}
+
 
 function bb_redirect_home() {
     var getUrl = window.location;
