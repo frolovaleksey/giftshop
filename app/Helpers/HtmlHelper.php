@@ -129,7 +129,7 @@ class HtmlHelper
 
     public static function isMobile()
     {
-        return true;
+        //return true;
         $useragent = $_SERVER['HTTP_USER_AGENT'];
         if(
             // добавить '|android|ipad|playbook|silk' в первую регулярку для определения еще и tablet

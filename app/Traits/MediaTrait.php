@@ -64,6 +64,7 @@ trait MediaTrait
     public function saveMediaFromRequest(Request $request, $fileFieldName)
     {
         $file = $request->file($fileFieldName);
+        //dd($request, $fileFieldName, $_FILES, $file);
         if($file === null){
             return;
         }

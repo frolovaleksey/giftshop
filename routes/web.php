@@ -49,6 +49,9 @@ if( !function_exists('call_routes')) {
                 Route::resource('page', 'Admin\PageController');
                 Route::resource('post', 'Admin\PostController');
                 Route::resource('category', 'Admin\CategoryController');
+                Route::resource('product_cat', 'Admin\ProductCategoryController');
+                Route::resource('prod_rel_tax', 'Admin\ProductRelationTaxonomyController');
+
                 Route::resource('product', 'Admin\ProductController');
             });
 

@@ -41,6 +41,12 @@ class Category extends Taxonomy
         return 'category';
     }
 
+    public static function taxRelationName()
+    {
+        // name for relation function in model
+        return 'categories';
+    }
+
     public static function initFields()
     {
         $title   = new \App\Helpers\FormGroup\Text('title');

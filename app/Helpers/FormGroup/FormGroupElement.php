@@ -6,7 +6,7 @@ namespace App\Helpers\FormGroup;
 
 use Illuminate\Http\Request;
 
-abstract class FormGroupElement
+class FormGroupElement
 {
     protected $name;
     protected $options=[];
@@ -30,6 +30,11 @@ abstract class FormGroupElement
     {
         $this->name = $name;
         return $this;
+    }
+
+    public static function create($name)
+    {
+        return new static($name);
     }
 
     public function setName($name)

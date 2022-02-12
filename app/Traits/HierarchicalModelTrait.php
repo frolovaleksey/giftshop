@@ -44,6 +44,9 @@ trait HierarchicalModelTrait
                 $tempItem = $item;
                 unset($items[$key]);
 
+                if($selectesItems === null){
+                    continue;
+                }
 
                 $selectedItem = $selectesItems->filter(function ($value, $key) use($item) {
                     return $value->id == $item->id;

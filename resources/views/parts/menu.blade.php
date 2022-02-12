@@ -83,8 +83,23 @@
         'route' => 'product.index',
     ];
 
+    $menu_shop_items_product_cat = [
+        'title' => __('shop.product_cat'),
+        'route' => 'product_cat.index',
+    ];
+
+    $menu_shop_items_prod_rel_tax = [
+        'title' => __('shop.prod_rel_tax'),
+        'route' => 'prod_rel_tax.index',
+    ];
+
+
+
+
     $menu_shop_items = [
         $menu_shop_items_product,
+        $menu_shop_items_product_cat,
+        $menu_shop_items_prod_rel_tax,
     ];
 
     $menu_shop = [

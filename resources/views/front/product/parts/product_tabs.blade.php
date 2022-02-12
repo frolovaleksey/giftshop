@@ -24,7 +24,7 @@
             @if( $webItem->getFieldValue('faq')->count() > 0 )
             <li>
                 <a href="#stips-internal-product-faq"
-                   class="anchor-link tab-title">FAQ</a>
+                   class="anchor-link tab-title">{{__('product.faq')}}</a>
             </li>
             @endif
         </ul>

@@ -18,6 +18,7 @@ class CreteTaxableTable extends Migration
             $table->integer('taxable_id');
             $table->string('taxable_type');
             $table->integer('tax_id');
+            $table->string('tax_type')->nullable();
             $table->timestamps();
         });
     }

@@ -12,7 +12,14 @@ trait TaxonomieTrait
             $tax = new $taxonomy();
             $taxName = $tax->getTaxonomyType();
             if($request->has($taxName)){
-                $this->categories()->sync($request->$taxName);
+                $taxRelationName = $taxonomy::taxRelationName();
+                $requestTerms = $request->$taxName;
+                $newTerms = [];
+                foreach ($requestTerms as $reqKey => $reqValue){
+                    $newTerms[$reqValue] = ['tax_type' => $tax->getItemType()];
+                }
+
+                $this->$taxRelationName()->sync($request->$taxName);
             }
         }
     }

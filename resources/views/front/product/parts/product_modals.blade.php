@@ -1,4 +1,4 @@
-@isMobile
+@notMobile
 <div class="col-md-12 product-content hide-mobile hide-tablet">
     <div class="product_top_nav">
         <ul class="list-items">

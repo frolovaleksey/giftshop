@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-md-4">
-        @include('admin.node.options')
+        @include('admin.product.options')
     </div>
 </div>
 
@@ -27,9 +27,16 @@
                                 Content
                             </a>
                         </li>
+
                         <li class="">
-                            <a href="#tab_meta" data-toggle="tab" aria-expanded="false">
-                                Meta
+                            <a href="#tab_specification" data-toggle="tab" aria-expanded="false">
+                                Specification
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#tab_taxanomies" data-toggle="tab" aria-expanded="false">
+                                Taxanomies
                             </a>
                         </li>
                         <li class="">
@@ -39,26 +46,37 @@
                         </li>
                     </ul>
                     <div class="tab-content no-space">
+
                         <div class="tab-pane active" id="tab_general">
                             <div class="form-body">
                                 @include('admin.product.tabs.tab_general')
                             </div>
                         </div>
+
                         <div class="tab-pane" id="tab_content">
                             <div class="form-body">
                                 @include('admin.product.tabs.tab_content')
                             </div>
                         </div>
-                        <div class="tab-pane" id="tab_meta">
+
+                        <div class="tab-pane" id="tab_specification">
                             <div class="form-body">
-                                    rrr
+                                @include('admin.product.tabs.tab_specification')
                             </div>
                         </div>
+
+                        <div class="tab-pane" id="tab_taxanomies">
+                            <div class="form-body">
+                                @include('admin.product.tabs.tab_taxonomies')
+                            </div>
+                        </div>
+
                         <div class="tab-pane" id="tab_images">
                             <div class="form-body">
                                 @include('admin.product.tabs.tab_images')
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

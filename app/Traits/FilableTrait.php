@@ -311,20 +311,7 @@ trait FilableTrait
             return null;
         }
 
-
         $templateField = $this->getTemplateField($key);
-
-        /*
-        if(get_class($templateField) == 'App\Helpers\FormGroup\Select'){
-            $options = $templateField->getOptions();
-            return $options[$field->value];
-        }
-
-        // Special for repaeater
-        $templateField->prepareFrontValue($field);
-
-        return $field->value;
-        */
 
         return $templateField->prepareFrontValue($field, $this);
     }
@@ -345,7 +332,9 @@ trait FilableTrait
 
         $this->slug = $this->prepareSlugByField($request, 'title');
 
-        $this->fill($request->all());
+        if( is_array($this->fillable) && count($this->fillable) ) {
+            $this->fill($request->all());
+        }
 
         $this->save();
 

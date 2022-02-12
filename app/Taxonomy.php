@@ -6,6 +6,7 @@ use App\Interfaces\MediaInterface;
 use App\Interfaces\PageInterface;
 use App\Traits\AuthorTrait;
 use App\Traits\FilableTrait;
+use App\Traits\FrontPageTrait;
 use App\Traits\HierarchicalModelTrait;
 use App\Traits\ParentTrait;
 use App\Traits\TaxonomieTrait;
@@ -21,6 +22,7 @@ abstract class Taxonomy extends Model implements MediaInterface, PageInterface
     use ParentTrait;
     use TemplateTrait;
     use AuthorTrait;
+
     /*
      * type
      */
@@ -28,6 +30,8 @@ abstract class Taxonomy extends Model implements MediaInterface, PageInterface
     protected static $singleTableTypeField = 'type';
     protected static $singleTableSubclasses = [
         Category::class,
+        ProductCategory::class,
+        ProductRelationTaxonomy::class,
     ];
 
     public abstract static function getBaseRoute();
@@ -37,6 +41,8 @@ abstract class Taxonomy extends Model implements MediaInterface, PageInterface
     public abstract static function getBaseLoc();
 
     public abstract static function initFields();
+
+    public abstract static function taxRelationName();
 
     public function getValidationRules()
     {

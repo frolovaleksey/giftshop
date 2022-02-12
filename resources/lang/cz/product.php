@@ -11,6 +11,17 @@ return [
     'venue' => 'Místo konání',
     'views' => 'Právě si prohlíží',
     'gallery' => 'Galerie',
+    'faq' => 'FAQ',
+
+    'course_experience' => 'Průběh zážitku',
+    'location' => 'Lokalita',
+    'experience_includes' => 'Zážitek obsahuje',
+    'experience_does_not_contain' => 'Zážitek neobsahuje',
+    'season' => 'Sezóna',
+    'spectators' => 'Diváci',
+    'weather' => 'Počasí',
+    'health_condition' => 'Zdravotní stav',
+    'note' => 'Poznámka',
 
     'online_rservation' => 'Online rezervace',
     'gift_catalog' => 'Katalog dárků',
