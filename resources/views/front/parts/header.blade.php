@@ -1,9 +1,8 @@
 <header class="header main-header">
-<?php /*
     <div class="admin-edit">
-        hhh
+        <a href="{{$webItem->getEditUrl()}}" class="front_edit_page">{{__('global.edit_page')}}</a>
     </div>
-*/ ?>
+
     <div class="main-header-hold">
         <!-- container start -->
         <div class="container">

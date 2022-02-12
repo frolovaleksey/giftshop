@@ -218,4 +218,13 @@ abstract class FormGroupElement
         $this->prepareParametres();
         return $this->renderView();
     }
+
+    /*
+     *
+     * $filableItem - for repeater and other parent fields
+     */
+    public function prepareFrontValue($fieldModel, $filableItem)
+    {
+        return $fieldModel->value;
+    }
 }

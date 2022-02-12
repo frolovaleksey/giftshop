@@ -22,19 +22,12 @@
 
         <!-- /.stips-product-short-price-tablet-amount -->
             <div class="stips-product-short-price-tablet-button">
-                @if ( Cart::hasProduct($webItem) )
-                    <a href="#" class="btn-primary btn-block added-to-cart" >{{__('product.in_cart')}}</a>
-                @else
-                    <a href="#" class="btn-primary btn-block" >
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>{{__('product.add_to_cart')}}
-                    </a>
+                @include('front.product.parts.add_to_cart_button')
+
+                @if( $sku = $webItem->getSku() )
+                    <i class="small"> {{__('product.sku')}}: {{$sku}}</i>
                 @endif
-
-            @if( $sku = $webItem->getSku() )
-                <i class="small"> {{__('product.sku')}}: {{$sku}}</i>
-            @endif
-
-        </div>
+            </div>
         <!-- /.stips-product-short-price-tablet-button -->
     </div>
 </div>

@@ -1,6 +1,6 @@
 @include('front.parts.head')
 
-<body id="body" class="scroll_block theme-stips">
+<body id="body" class="scroll_block theme-stips @if($webItem->getItemType() == 'product' )single-product @endif ">
 
 <div id="st-container" class="st-container">
     <div class="st-pusher" style="min-height: 927px;">

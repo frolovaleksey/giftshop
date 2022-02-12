@@ -140,7 +140,7 @@ if( config('system')['localisation'] ){
     });
 }else{
 
-    App::setLocale('ru');
+    // App::setLocale('ru');
     call_routes();
 }
 

@@ -311,14 +311,22 @@ trait FilableTrait
             return null;
         }
 
-        // Special for select
+
         $templateField = $this->getTemplateField($key);
+
+        /*
         if(get_class($templateField) == 'App\Helpers\FormGroup\Select'){
             $options = $templateField->getOptions();
             return $options[$field->value];
         }
 
+        // Special for repaeater
+        $templateField->prepareFrontValue($field);
+
         return $field->value;
+        */
+
+        return $templateField->prepareFrontValue($field, $this);
     }
 
     public function saveRequest(Request $request)

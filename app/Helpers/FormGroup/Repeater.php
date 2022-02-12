@@ -121,4 +121,18 @@ class Repeater extends FormGroupElement
     {
         return $viewOptions + ['repeater' => $this];
     }
+
+    public function prepareFrontValue($fieldModel, $filableItem)
+    {
+        $this->setFilableItem($filableItem);
+
+        $result = [];
+        foreach ($this->prepareRepeaterFieldBlocks( $this->getRepeaterFields() ) as $order => $block) {
+            foreach ($block as $key => $field){
+                $result[$order][$key] = $field->value;
+            }
+        }
+
+        return collect( $result );
+    }
 }

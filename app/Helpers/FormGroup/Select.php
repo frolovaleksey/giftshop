@@ -18,4 +18,10 @@ class Select extends FormGroupElement
         $viewOptions['value'] = $value;
         return $viewOptions;
     }
+
+    public function prepareFrontValue($fieldModel, $filableItem)
+    {
+        $options = $this->getOptions();
+        return $options[$fieldModel->value];
+    }
 }

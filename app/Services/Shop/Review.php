@@ -16,6 +16,7 @@ class Review
     public $salePrice;
     public $highPrice;
     public $priceCurrency;
+    public $stars;
 
     public function __construct($rewiebleObj)
     {
@@ -32,6 +33,7 @@ class Review
         $this->reviewCount = 10;
         $this->ratingCount = 18;
         $this->offerCount = 1;
+        $this->stars = 4;
 
     }
 }

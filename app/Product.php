@@ -10,6 +10,7 @@ use App\Traits\FrontPageTrait;
 use App\Traits\ModelHelperTrait;
 use App\Traits\ReviewTrait;
 use App\Traits\TemplateTrait;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model implements MediaInterface, PageInterface
@@ -23,7 +24,9 @@ class Product extends Model implements MediaInterface, PageInterface
 
     protected $fillable = [
         'sale_price',
+        'regular_price',
         'expired_date',
+        'sku',
     ];
 
     protected $dates = [
@@ -249,8 +252,23 @@ class Product extends Model implements MediaInterface, PageInterface
 
     public function onSale()
     {
-        // TODO
-        return true;
+        // TODO  check for dates
+        if ( ($this->getSalePrice()!==null && $this->getRegularPrice() !== null) && $this->getRegularPrice() > $this->getSalePrice() ) {
+            $onSale = true;
+
+            if( $this->date_open !== null && $this->date_open->gte( Carbon::now() ) ){
+                $onSale = true;
+            }
+
+            if( $this->date_close !== null && $this->date_close->lte( Carbon::now() ) ){
+                $onSale = true;
+            }
+
+        } else {
+            $onSale = false;
+        }
+
+        return $onSale;
     }
 
     public function saleCurrency()
@@ -273,5 +291,12 @@ class Product extends Model implements MediaInterface, PageInterface
     public function getSku()
     {
         return $this->sku;
+    }
+
+    public function getViewsCount()
+    {
+        $min = 1;
+        $max = 400;
+        return rand($min, $max);
     }
 }
