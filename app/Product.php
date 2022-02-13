@@ -217,8 +217,11 @@ class Product extends Model implements MediaInterface, PageInterface
                 'number_of_persons' => $number_of_persons,
                 'hours' => $hours,
                 'customproductsales' => \App\Helpers\FormGroup\Text::create('customproductsales') // eg-customproductsales  wp
-                        ->setValidationRules('numeric')
+                        ->setValidationRules(['numeric', 'nullable'])
                         ->setCssClass('input-small'),
+
+
+                'cities' => \App\Helpers\FormGroup\Text::create('cities'), //eg-maplocations wp
 
                 // Specification
                 'course_experience' => \App\Helpers\FormGroup\Textarea::create('course_experience'), // prubeh_zazitku  wp
@@ -258,6 +261,9 @@ class Product extends Model implements MediaInterface, PageInterface
 
     public function getClientPrice()
     {
+        if($this->sale_price === null ){
+            return $this->regular_price;
+        }
         return $this->sale_price;
     }
 
@@ -314,5 +320,17 @@ class Product extends Model implements MediaInterface, PageInterface
         $min = 1;
         $max = 400;
         return rand($min, $max);
+    }
+
+    public function getRelatedProductByTax()
+    {
+        $products = collect([]);
+        foreach ($this->productRelationTaxonomies as $productRelationTaxonomy){
+            $products = $products->merge(
+                $productRelationTaxonomy->products()->where('taxable_id', '!=', $this->id)
+                ->get()
+            );
+        }
+        return $products->unique('id');
     }
 }

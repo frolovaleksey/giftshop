@@ -56,4 +56,11 @@ class ProductRelationTaxonomy extends Taxonomy
             ],
         ];
     }
+
+    public function products()
+    {
+        return $this->morphedByMany('App\Product', 'taxable', 'taxables', 'tax_id')
+            ->withPivotValue('tax_type','prod_rel_tax');
+            ;
+    }
 }

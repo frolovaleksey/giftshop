@@ -31,6 +31,11 @@ return [
     'easy_gift_exchange' => 'Lehká výměna dárku',
     'every_experience_verified' => 'Každý zážitek ověřen',
 
+    'other_variants_of_experiences' => 'Další varianty zážitků',
+    'number_of_persons' => 'Počet osob',
+    'time' => 'Čas',
+    'price' => 'Cena',
+
     'person_1' => '1 osoba',
     'person_2' => '2 osoby',
     'person_3' => '3 osoby',
