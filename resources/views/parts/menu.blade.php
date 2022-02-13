@@ -93,6 +93,11 @@
         'route' => 'prod_rel_tax.index',
     ];
 
+    $menu_shop_items_feed_category = [
+        'title' => __('shop.feed_category'),
+        'route' => 'feed_category.index',
+    ];
+
 
 
 
@@ -100,6 +105,7 @@
         $menu_shop_items_product,
         $menu_shop_items_product_cat,
         $menu_shop_items_prod_rel_tax,
+        $menu_shop_items_feed_category,
     ];
 
     $menu_shop = [

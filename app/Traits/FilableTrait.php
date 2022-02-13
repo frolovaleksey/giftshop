@@ -21,7 +21,7 @@ trait FilableTrait
     {
         $rules = [];
         foreach ($this->getTemplateFields() as $field) {
-            $rules = $rules + $field->getValidationRules();
+            $rules = $rules + $field->getValidationRules($this);
         }
 
         return $rules;

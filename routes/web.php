@@ -51,6 +51,7 @@ if( !function_exists('call_routes')) {
                 Route::resource('category', 'Admin\CategoryController');
                 Route::resource('product_cat', 'Admin\ProductCategoryController');
                 Route::resource('prod_rel_tax', 'Admin\ProductRelationTaxonomyController');
+                Route::resource('feed_category', 'Admin\FeedCategoryController');
 
                 Route::resource('product', 'Admin\ProductController');
             });

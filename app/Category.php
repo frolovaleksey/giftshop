@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Rules\UniqueTitleRule;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Taxonomy
@@ -62,7 +63,10 @@ class Category extends Taxonomy
         // template => [field1, field2, ...]
         return [
             'base' => [
-                'title' => $title,
+                'title'           => \App\Helpers\FormGroup\Text::create('title')
+                    ->setValidationRules(
+                        ['required', new UniqueTitleRule()]
+                    ),
                 'content' => $content,
                 'info' => $info,
                 'image' => $image,

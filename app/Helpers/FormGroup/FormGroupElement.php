@@ -127,9 +127,18 @@ class FormGroupElement
         return $this->filableItem;
     }
 
-    public function getValidationRules()
+    public function getValidationRules($model=null)
     {
         if($this->validationRules !== null ){
+
+            if( is_array($this->validationRules) ) {
+                foreach ($this->validationRules as $rule) {
+                    if (method_exists($rule, 'setModel')) {
+                        $rule->setModel($model);
+                    }
+                }
+            }
+
             return [
                 $this->getName() => $this->validationRules
             ];

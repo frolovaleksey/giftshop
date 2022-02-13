@@ -6,9 +6,9 @@ namespace App;
 
 use App\Rules\UniqueTitleRule;
 
-class ProductRelationTaxonomy extends Taxonomy
+class FeedCategory extends Taxonomy
 {
-    protected static $singleTableType = 'prod_rel_tax';
+    protected static $singleTableType = 'feed_category';
     protected $table = 'taxonomies';
 
     public $templates = [
@@ -20,12 +20,12 @@ class ProductRelationTaxonomy extends Taxonomy
 
     public function getFilesDirectory()
     {
-        return 'upload/prod_rel_tax/'.$this->id;
+        return 'upload/feed_category/'.$this->id;
     }
 
     public static function getBaseRoute()
     {
-        return 'prod_rel_tax';
+        return 'feed_category';
     }
 
     public static function getBaseViewFolder()
@@ -35,13 +35,13 @@ class ProductRelationTaxonomy extends Taxonomy
 
     public static function getBaseLoc()
     {
-        return 'prod_rel_tax';
+        return 'feed_category';
     }
 
     public static function taxRelationName()
     {
         // name for relation function in model
-        return 'productRelationTaxonomies';
+        return 'productFeedCategory';
     }
 
     public static function initFields()
@@ -57,3 +57,4 @@ class ProductRelationTaxonomy extends Taxonomy
         ];
     }
 }
+

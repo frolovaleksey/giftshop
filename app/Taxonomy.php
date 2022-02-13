@@ -32,6 +32,7 @@ abstract class Taxonomy extends Model implements MediaInterface, PageInterface
         Category::class,
         ProductCategory::class,
         ProductRelationTaxonomy::class,
+        FeedCategory::class,
     ];
 
     public abstract static function getBaseRoute();

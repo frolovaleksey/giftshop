@@ -5,6 +5,8 @@ namespace App;
 
 
 
+use App\Rules\UniqueTitleRule;
+
 class ProductCategory extends Taxonomy
 {
     protected static $singleTableType = 'product_cat';
@@ -50,7 +52,7 @@ class ProductCategory extends Taxonomy
             'base' => [
                 'title'           => \App\Helpers\FormGroup\Text::create('title')
                                         ->setValidationRules(
-                                            'required'
+                                            ['required', new UniqueTitleRule()]
                                         ),
                 'description'     => \App\Helpers\FormGroup\Textarea::create('description'),
                 'category_header' => \App\Helpers\FormGroup\Wysiwyg::create('category_header'),

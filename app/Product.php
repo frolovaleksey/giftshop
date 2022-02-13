@@ -44,6 +44,7 @@ class Product extends Model implements MediaInterface, PageInterface
     public $taxonomies = [
         ProductCategory::class,
         ProductRelationTaxonomy::class,
+        FeedCategory::class,
     ];
 
     public function productCategory()
@@ -54,6 +55,11 @@ class Product extends Model implements MediaInterface, PageInterface
     public function productRelationTaxonomies()
     {
         return $this->morphToMany('App\ProductRelationTaxonomy', 'taxable', 'taxables', 'taxable_id', 'tax_id'  )->withPivotValue('tax_type','prod_rel_tax');
+    }
+
+    public function productFeedCategory()
+    {
+        return $this->morphToMany('App\FeedCategory', 'taxable', 'taxables', 'taxable_id', 'tax_id'  )->withPivotValue('tax_type','prod_rel_tax');
     }
 
 
