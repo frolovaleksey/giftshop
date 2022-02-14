@@ -40,6 +40,8 @@
 
                                     @include('front.product.parts.product_map')
 
+                                    @include('front.product.parts.comments')
+
                                 </div>
 
                                 @include('front.product.parts.right_sidebar')

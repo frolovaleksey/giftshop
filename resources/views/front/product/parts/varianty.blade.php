@@ -2,6 +2,15 @@
 $relatedProductByTax = $webItem->getRelatedProductByTax();
 @endphp
 @if($relatedProductByTax->count())
+
+<?php /*
+        <script type="text/javascript">
+            $(function() {
+                $('.sort-block').tablesort().data('tablesort');
+            });
+        </script>
+ */ ?>
+
 <!-- Varianty related productu -->
 <div class="varianty" id="tab_additional_information">
     <h2 class="product_darkobox">{{__('product.other_variants_of_experiences')}}</h2>
@@ -15,6 +24,18 @@ $relatedProductByTax = $webItem->getRelatedProductByTax();
         </ul>
 
         @foreach ($relatedProductByTax as $relProduct)
+            @php
+                $cityBase = $relProduct->getFieldValue('cities');
+                $city = explode(",", $cityBase);
+
+                if (count($city) == 1) {
+                    $maplocations1 = $cityBase;
+                } else {
+                    $maplocations1 = __('product.multiple_locations');
+                }
+
+                $maplocationsOther = $cityBase;
+            @endphp
 
         <ul class="sort-block__body">
             <li>
@@ -27,8 +48,8 @@ $relatedProductByTax = $webItem->getRelatedProductByTax();
 
                     <li data-sort-value="{{$relProduct->getFieldValue('number_of_persons')}}">
                         <a target="_blank" class="tenhpm2t" href="{{$relProduct->getUrl()}}">
-                             <span title="{{$relProduct->getFieldValue('cities')}}">
-                            <i class="fas fa-map-marker-alt"></i> maplocations_1 TODO</span>
+                             <span title="{{$maplocationsOther}}">
+                            <i class="fas fa-map-marker-alt"></i> {{$maplocations1}}</span>
                         </a>
                     </li>
 

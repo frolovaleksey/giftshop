@@ -5,6 +5,7 @@ namespace App;
 use App\Interfaces\MediaInterface;
 use App\Interfaces\PageInterface;
 use App\Traits\AuthorTrait;
+use App\Traits\CommentTrait;
 use App\Traits\FilableTrait;
 use App\Traits\FrontPageTrait;
 use App\Traits\ModelHelperTrait;
@@ -23,6 +24,7 @@ class Product extends Model implements MediaInterface, PageInterface
     use FrontPageTrait;
     use ReviewTrait;
     use TaxonomieTrait;
+    use CommentTrait;
 
     protected $fillable = [
         'sale_price',
@@ -221,7 +223,9 @@ class Product extends Model implements MediaInterface, PageInterface
                         ->setCssClass('input-small'),
 
 
-                'cities' => \App\Helpers\FormGroup\Text::create('cities'), //eg-maplocations wp
+                'cities' => \App\Helpers\FormGroup\Text::create('cities')->setLabel( 'Cities (next ","):' ), //eg-maplocations wp
+                'street' => \App\Helpers\FormGroup\Text::create('street')->setLabel( 'Street (next "and"):' ), //eg-belowlocation wp
+                'googlemap' => \App\Helpers\FormGroup\Textarea::create('googlemap'), //eg-googlemap wp
 
                 // Specification
                 'course_experience' => \App\Helpers\FormGroup\Textarea::create('course_experience'), // prubeh_zazitku  wp

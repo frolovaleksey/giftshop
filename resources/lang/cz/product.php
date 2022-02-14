@@ -35,6 +35,10 @@ return [
     'number_of_persons' => 'Počet osob',
     'time' => 'Čas',
     'price' => 'Cena',
+    'multiple_locations' => 'Vícero lokalit',
+    'experience_gallery' => 'Galerie zážitku',
+    'faq_title' => 'Často kladené dotazy (FAQ)',
+    'place_experience' => 'Místo konání zážitku',
 
     'person_1' => '1 osoba',
     'person_2' => '2 osoby',

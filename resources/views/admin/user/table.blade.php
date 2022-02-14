@@ -44,9 +44,9 @@
                         <i class="fa fa-lock"></i>
                     @endif
                 </td>
-                <td><a href="{{route('users.edit', ['user' => $item->id])}}" title="{{__('form.edit')}}"><span aria-hidden="true" class="icon-pencil"></span></a></td>
+                <td><a href="{{route('comment.edit', ['comment' => $item->id])}}" title="{{__('form.edit')}}"><span aria-hidden="true" class="icon-pencil"></span></a></td>
                 <td>
-                    <a href="#" title="{{__('form.delete')}}" data-toggle="modal" data-target="#modal_delete" data-del_url="{{route('users.destroy', ['user' => $item->id])}}">
+                    <a href="#" title="{{__('form.delete')}}" data-toggle="modal" data-target="#modal_delete" data-del_url="{{route('comment.destroy', ['comment' => $item->id])}}">
                         <span aria-hidden="true" class="icon-trash"></span>
                     </a>
                 </td>

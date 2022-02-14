@@ -22,26 +22,31 @@
                                 General
                             </a>
                         </li>
-                        <li class="">
+                        <li>
                             <a href="#tab_content" data-toggle="tab" aria-expanded="false">
                                 Content
                             </a>
                         </li>
 
-                        <li class="">
+                        <li >
                             <a href="#tab_specification" data-toggle="tab" aria-expanded="false">
                                 Specification
                             </a>
                         </li>
 
-                        <li class="">
+                        <li>
                             <a href="#tab_taxanomies" data-toggle="tab" aria-expanded="false">
                                 Taxanomies
                             </a>
                         </li>
-                        <li class="">
+                        <li>
                             <a href="#tab_images" data-toggle="tab" aria-expanded="false">
                                 Images
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab_comments" data-toggle="tab" aria-expanded="false">
+                                Comments
                             </a>
                         </li>
                     </ul>
@@ -74,6 +79,12 @@
                         <div class="tab-pane" id="tab_images">
                             <div class="form-body">
                                 @include('admin.product.tabs.tab_images')
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="tab_comments">
+                            <div class="form-body">
+                                @include('admin.product.tabs.tab_comment')
                             </div>
                         </div>
 

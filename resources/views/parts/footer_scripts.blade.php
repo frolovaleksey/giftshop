@@ -51,6 +51,7 @@
 
 <script type="text/javascript"  src="{{url('/')}}/js/main.js?v={{$script_date}}"></script>
 <script type="text/javascript"  src="{{url('/')}}/js/ajax_table.js?v={{$script_date}}"></script>
+<script type="text/javascript"  src="{{url('/')}}/js/ajax_form.js?v={{$script_date}}"></script>
 <script type="text/javascript"  src="{{url('/')}}/js/modal_delete.js?v={{$script_date}}"></script>
 <script type="text/javascript"  src="{{url('/')}}/js/nodeFields.js?v={{$script_date}}"></script>
 <script type="text/javascript"  src="{{url('/')}}/js/relationFields.js?v={{$script_date}}"></script>

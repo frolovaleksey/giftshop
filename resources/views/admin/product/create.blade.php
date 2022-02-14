@@ -12,4 +12,7 @@
 
     @endcomponent
 
+    @include('admin.comment.modal_create')
 @endsection
+
+

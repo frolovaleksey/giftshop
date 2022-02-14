@@ -46,6 +46,11 @@ if( !function_exists('call_routes')) {
                 Route::delete('field/{id}', 'Admin\FieldController@destroyMediaField')->name('field.destroy_media_field');
                 Route::get('relation/{model}/{field}/{id?}', 'Admin\FieldController@getRelationOptions')->name('field.get_relation_options');
 
+
+                Route::get('comment/get_table', 'Admin\CommentController@getTableComments')->name('comment.get_table');
+                Route::resource('comment', 'Admin\CommentController');
+
+
                 Route::resource('page', 'Admin\PageController');
                 Route::resource('post', 'Admin\PostController');
                 Route::resource('category', 'Admin\CategoryController');
