@@ -76,8 +76,5 @@ function initComment() {
 
             statusCode: gsStatusCodes,
         });
-
     });
-
-
 }
