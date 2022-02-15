@@ -19,3 +19,7 @@
     color: red;
     font-size: 25px;
 }
+
+#tab_comments .row{
+    margin-right: 0;
+}

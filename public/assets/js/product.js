@@ -1,5 +1,6 @@
 jQuery(function(){
 	initProduct();
+	initComment();
 });
 
 function initProduct() {
@@ -50,5 +51,33 @@ function initProduct() {
             nextArrow: '<button type="button" class="slick-next"><i class="fas fa-arrow-right"></i></button>'
         });
     }
+}
+
+function initComment() {
+    if ( !jQuery('.comment-pagination').length) {
+        return;
+    }
+
+    let pageLink = jQuery('.comment-pagination').find('.page-link');
+    let commentsHolder = jQuery('#reviews').find('.comments_holder');
+
+    pageLink.on( 'click', function(event) {
+        event.preventDefault();
+
+        commentsHolder.html('<img src="'+loader_url+'">');
+
+        jQuery.ajax({
+            type: "GET",
+            url: jQuery(this).attr('href'),
+            success: function (response) {
+                commentsHolder.html(response);
+                initComment();
+            },
+
+            statusCode: gsStatusCodes,
+        });
+
+    });
+
 
 }

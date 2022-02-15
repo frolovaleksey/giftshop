@@ -39,6 +39,7 @@ return [
     'experience_gallery' => 'Galerie zážitku',
     'faq_title' => 'Často kladené dotazy (FAQ)',
     'place_experience' => 'Místo konání zážitku',
+    'experience_evaluation' => 'hodnocení zážitku',
 
     'person_1' => '1 osoba',
     'person_2' => '2 osoby',

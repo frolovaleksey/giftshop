@@ -1,11 +1,8 @@
 <table class="table table-striped table-bordered table-hover dataTable " >
     <thead>
     <tr bb-group>
-        <th bb-order bb-name="id" class="sorting">
-            id
+        <th>
         </th>
-        <th></th>
-        <th></th>
     </tr>
     </thead>
 
@@ -13,10 +10,14 @@
     @isset($items)
         @foreach ($items as $comment)
             <tr>
-                <td>{{$comment->id}}</td>
-                <td><a href="{{route('users.edit', ['user' => $comment->id])}}" title="{{__('form.edit')}}"><span aria-hidden="true" class="icon-pencil"></span></a></td>
                 <td>
-                    <a href="#" title="{{__('form.delete')}}" data-toggle="modal" data-target="#modal_delete" data-del_url="{{route('users.destroy', ['user' => $comment->id])}}">
+                    <p>{{$comment->body}}</p>
+                    <p>Rating: {{$comment->rating}} Author:{{$comment->author->name}} Id:{{$comment->id}}</p>
+
+
+                    <a target="_blank" href="{{route('comment.edit', ['comment' => $comment->id])}}" title="{{__('form.edit')}}"><span aria-hidden="true" class="icon-pencil"></span></a>
+
+                    <a href="#" title="{{__('form.delete')}}" data-toggle="modal" data-target="#modal_delete" data-del_url="{{route('comment.destroy', ['comment' => $comment->id])}}">
                         <span aria-hidden="true" class="icon-trash"></span>
                     </a>
                 </td>

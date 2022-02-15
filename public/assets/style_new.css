@@ -90,3 +90,11 @@
 .admin-edit a{
     color: #fff;
 }
+
+.pagination .page-item.active{
+    background-color: #b04fc1;
+}
+
+.pagination .page-item.active span{
+    color: #fff;
+}

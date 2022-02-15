@@ -1,6 +1,6 @@
-<?php
+@php
 $comments = $item->comments;
-?>
+@endphp
 
 <div bb-sort_block bb-url="{{route('comment.get_table')}}" id="admin_comment_table">
     <div class="table-scrollable">

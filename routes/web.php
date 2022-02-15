@@ -62,6 +62,9 @@ if( !function_exists('call_routes')) {
             });
 
             // Front
+            Route::get('comment/{modelType}/{modelId}', 'Front\CommentController@getListComments')->name('comment.front.get_list');
+
+
             Route::group(['prefix' => 'product'], function () {
                 Route::get('{slug}', 'Front\ProductController@show')->name('product.front.show');
             });

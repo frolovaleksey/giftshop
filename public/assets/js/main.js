@@ -1,3 +1,30 @@
+var gsStatusCodes = {
+    403: function(response) {
+        bb_dont_have_perrmissions();
+    },
+    500: function(response) {
+        bb_ajax_error();
+    },
+    422: function(response) {
+
+        var errors = response['responseJSON']['errors'];
+
+        var txt = '';
+        for (var key in errors) {
+            txt = txt + ajax_errors_keys[key] +':' + errors[key];
+        }
+        alert(txt);
+    }
+};
+
+function bb_dont_have_perrmissions(){
+    alert('User does not have the right permissions.');
+}
+
+function bb_ajax_error(){
+    alert('Internal error');
+}
+
 jQuery(function(){
     initCardCarousel();
 });
