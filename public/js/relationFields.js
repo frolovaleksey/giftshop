@@ -38,7 +38,7 @@ function gsRelationFieldsInit() {
             },
             cache: true
         },
-        placeholder: 'Search for a repository',
+        placeholder: 'Search',
         minimumInputLength: 1,
         templateResult: formatRepo,
         templateSelection: formatRepoSelection

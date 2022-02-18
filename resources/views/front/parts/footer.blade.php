@@ -174,6 +174,4 @@
         </div>
     </div>
 
-    @include('front.parts.footer_scripts')
-
 </footer>

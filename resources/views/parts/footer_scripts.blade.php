@@ -40,10 +40,10 @@
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="{{url('/')}}/global/scripts/metronic.js" type="text/javascript"></script>
-<script src="{{url('/')}}/admin/layout3/scripts/layout.js" type="text/javascript"></script>
+<script src="{{url('/')}}/back/layout3/scripts/layout.js" type="text/javascript"></script>
 
 <script type="text/javascript" src="{{url('/')}}/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script src="{{url('/')}}/admin/pages/scripts/components-pickers.js"></script>
+<script src="{{url('/')}}/back/pages/scripts/components-pickers.js"></script>
 
 
 <script type="text/javascript"  src="{{url('/')}}/js/plugins/jquery.textchange.min.js"></script>

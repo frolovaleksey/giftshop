@@ -8,6 +8,6 @@ trait CommentTrait
 {
     public function comments()
     {
-        return $this->morphMany('App\Comment', 'commentable')->orderBy('date', 'DESC');
+        return $this->morphMany('App\Comment', 'commentable')->orderBy('date', 'DESC')->with('author');
     }
 }

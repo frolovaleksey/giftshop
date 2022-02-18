@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Interfaces\FrontPageInterface;
 use App\Interfaces\MediaInterface;
 use App\Interfaces\PageInterface;
 use App\Traits\AuthorTrait;
@@ -15,7 +16,7 @@ use App\Traits\TemplateTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model implements MediaInterface, PageInterface
+class Product extends Model implements MediaInterface, PageInterface, FrontPageInterface
 {
     use ModelHelperTrait;
     use FilableTrait;
@@ -214,7 +215,14 @@ class Product extends Model implements MediaInterface, PageInterface
 
                 'related_product' => \App\Helpers\FormGroup\Relation::create('related_product')
                     ->setRelatedModel('App\Product')
-                    ->setLabel('Related Product'),
+                    ->setLabel('Related Products'),
+
+                'upsell_product' => \App\Helpers\FormGroup\Relation::create('upsell_product')
+                    ->setRelatedModel('App\Product')
+                    ->setLabel('Upsell Products'),
+
+                'feautured' => \App\Helpers\FormGroup\Checkbox::create('feautured'), //
+
 
                 'number_of_persons' => $number_of_persons,
                 'hours' => $hours,
@@ -254,6 +262,12 @@ class Product extends Model implements MediaInterface, PageInterface
                             'answer' => \App\Helpers\FormGroup\Text::create('answer'),
                         ]
                     ),
+
+
+                // SEO
+                'seo_title' => \App\Helpers\FormGroup\Text::create('seo_title'),
+                'description' => \App\Helpers\FormGroup\Textarea::create('description'),
+                'keywords' => \App\Helpers\FormGroup\Text::create('keywords'),
             ],
         ];
     }
@@ -336,5 +350,18 @@ class Product extends Model implements MediaInterface, PageInterface
             );
         }
         return $products->unique('id');
+    }
+
+    public function getFeauturedProducts()
+    {
+        $fields = Field::where('filabletable_type', 'App\Product')
+            ->where('fkey', 'feautured')
+            ->where('value', 1)
+            ->take(6)
+            ->get()
+            ->pluck('filabletable_id')
+        ;
+
+        return Product::with('fields')->find($fields);
     }
 }

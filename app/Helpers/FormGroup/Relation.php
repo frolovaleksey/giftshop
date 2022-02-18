@@ -5,6 +5,7 @@ namespace App\Helpers\FormGroup;
 
 
 use App\Field;
+use App\FieldRelation;
 
 class Relation extends FormGroupElement
 {
@@ -86,10 +87,12 @@ class Relation extends FormGroupElement
         return $options;
     }
 
-    /*
-    public function prepareFrontValue($fieldModel)
+
+    public function prepareFrontValue($fieldModel, $filableItem)
     {
-        dd($fieldModel);
+        return $fieldModel->fieldRelations()->with('relatable')->get()
+            ->pluck('relatable');
     }
-    */
+
+
 }

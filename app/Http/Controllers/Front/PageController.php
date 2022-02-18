@@ -4,9 +4,9 @@
 namespace App\Http\Controllers\Front;
 
 
-use App\Http\Controllers\Controller;
+use App\Page;
 
-class ProductController extends FrontController
+class PageController extends FrontController
 {
     protected $nodeObj = null;
 
@@ -19,7 +19,7 @@ class ProductController extends FrontController
 
     protected function getNodeObj()
     {
-        return 'App\Product';
+        return 'App\Page';
     }
 
     public function show($slug)
@@ -27,5 +27,11 @@ class ProductController extends FrontController
         $webItem = $this->nodeObj::findBySlug($slug);
 
         return view( $webItem::frontView(), ['webItem' => $webItem]);
+    }
+
+    public function homePage()
+    {
+        $webItem = Page::find( config('pages.home') );
+        return view('front.page.home', ['webItem' => $webItem]);
     }
 }

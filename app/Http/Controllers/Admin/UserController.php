@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 
-class UserController extends Controller
+class UserController extends AdminController
 {
     protected $searchFields = [
         'email',

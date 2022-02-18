@@ -7,7 +7,7 @@ use App\Product;
 use App\Services\Shop\Cart;
 use Illuminate\Http\Request;
 
-class CartController extends Controller
+class CartController extends FrontController
 {
     public function addProduct($id, Cart $cart)
     {

@@ -102,11 +102,23 @@ trait FilableTrait
         }elseif ( $field->isRepeater() ) {
             $this->saveRepeater($key, $field, $request);
 
-        }elseif ( $field->isRelation() ){
+        }elseif ( $field->isRelation() ) {
             $this->saveRelation($key, $field, $request);
+
+        }elseif ( $field->isCheckbox() ){
+            $this->saveCheckbox($key, $field, $request);
 
         }else{
             $this->saveField($key, $field->getValueFromRequest($request), $parent, $order);
+        }
+    }
+
+    public function saveCheckbox($key, $field, $request)
+    {
+        if($request->has($key)){
+            $this->saveField($key, 1);
+        }else{
+            $this->saveField($key, 0);
         }
     }
 

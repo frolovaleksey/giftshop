@@ -13,10 +13,22 @@ class ImageHelper
     public function __construct($mediaId)
     {
         $this->media = \App\Media::find($mediaId);
+        if( $this->media === null ){
+            return;
+        }
+    }
+
+    public function isImageEmpty()
+    {
+        return $this->media === null;
     }
 
     public function url($thumbnail=null)
     {
+        if( $this->isImageEmpty() ){
+            return;
+        }
+
         if($thumbnail === null) {
             return $this->media->getUrl();
         }else{

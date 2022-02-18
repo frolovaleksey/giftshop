@@ -1,6 +1,7 @@
 jQuery(function(){
 	initProduct();
 	initComment();
+	initSidebarProductSlide();
 });
 
 function initProduct() {
@@ -77,4 +78,12 @@ function initComment() {
             statusCode: gsStatusCodes,
         });
     });
+}
+
+function initSidebarProductSlide() {
+
+        jQuery(".slide_third > .slide_third--header").on('click', function() {
+            jQuery(".upsells").slideToggle();
+        });
+
 }

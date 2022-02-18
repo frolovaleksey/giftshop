@@ -41,5 +41,9 @@ $sale_price->setRequired()
 {!! $item->renderField('faq') !!}
 
 
+{!! $item->renderField('upsell_product') !!}
+
 {!! $item->renderField('related_product') !!}
+
+{!! $item->renderField('feautured') !!}
 

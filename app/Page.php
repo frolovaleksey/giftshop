@@ -4,9 +4,10 @@
 namespace App;
 
 
+use App\Interfaces\FrontPageInterface;
 use App\Traits\FrontPageTrait;
 
-class Page extends Node
+class Page extends Node implements FrontPageInterface
 {
     use FrontPageTrait;
 
@@ -40,6 +41,15 @@ class Page extends Node
         return 'page';
     }
 
+    public function getUrl()
+    {
+        return str_replace(
+            '/page/',
+            '/',
+            route(self::getBaseRoute().'.front.show', ['slug' => $this->slug] )
+        );
+    }
+
     public static function initFields()
     {
         $title   = new \App\Helpers\FormGroup\Text('title');
@@ -68,4 +78,8 @@ class Page extends Node
     }
 
 
+    public static function frontView()
+    {
+        return 'front.page.show';
+    }
 }

@@ -16,6 +16,9 @@ $localisationActive = false;
 if( !function_exists('call_routes')) {
     function call_routes()
     {
+
+
+
         $middleware = ['auth'];
 
         if(env('MAINTENANCE', true)){
@@ -24,10 +27,11 @@ if( !function_exists('call_routes')) {
 
         Route::middleware($middleware)->group(function () {
 
-            Route::get('/', 'WellcomeController@index')->name('wellcome.index');
-
             // Admin
             Route::group(['prefix' => 'admin'], function () {
+
+                Route::get('/', 'WellcomeController@index')->name('wellcome.index');
+
                 Route::resource('users', 'Admin\UserController');
                 Route::group(['prefix' => 'users'], function () {
                     Route::put('set_pass/{id}', 'Admin\UserController@setPass')->name('users_set_pass');
@@ -61,32 +65,38 @@ if( !function_exists('call_routes')) {
                 Route::resource('product', 'Admin\ProductController');
             });
 
-            // Front
-            Route::get('comment/{modelType}/{modelId}', 'Front\CommentController@getListComments')->name('comment.front.get_list');
-
-
-            Route::group(['prefix' => 'product'], function () {
-                Route::get('{slug}', 'Front\ProductController@show')->name('product.front.show');
-            });
-
-            Route::group(['prefix' => 'cart'], function () {
-                Route::get('add/{id}', 'Front\CartController@addProduct')->name('cart.add');
-                Route::get('delete/{id}', 'Front\CartController@deleteProduct')->name('cart.delete');
-            });
-
-
-            Route::group(['prefix' => 'post'], function () {
-                Route::get('{slug}', 'Front\PostController@show')->name('post.front.show');
-            });
-
-            Route::group(['prefix' => 'page'], function () {
-                Route::get('{slug}', 'Front\PageController@show')->name('page.front.show');
-            });
-
-
             Route::get('testp', 'TestController@index')->name('test.index');
-
         });
+
+
+
+
+        // Front
+        Route::get('/', 'Front\PageController@homePage')->name('page.front.home');
+
+        Route::get('{slug}', 'Front\PageController@show')->name('page.front.show');
+
+
+        Route::get('comment/{modelType}/{modelId}', 'Front\CommentController@getListComments')->name('comment.front.get_list');
+
+        Route::group(['prefix' => 'product'], function () {
+            Route::get('{slug}', 'Front\ProductController@show')->name('product.front.show');
+        });
+
+        Route::group(['prefix' => 'cart'], function () {
+            Route::get('add/{id}', 'Front\CartController@addProduct')->name('cart.add');
+            Route::get('delete/{id}', 'Front\CartController@deleteProduct')->name('cart.delete');
+        });
+
+        Route::group(['prefix' => 'post'], function () {
+            Route::get('{slug}', 'Front\PostController@show')->name('post.front.show');
+        });
+
+        Route::group(['prefix' => 'page'], function () {
+            Route::get('{slug}', 'Front\PageController@show')->name('page.front.show');
+        });
+
+
 
 
         Route::get('maintence', function () {

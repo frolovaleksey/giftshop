@@ -18,9 +18,9 @@
 
                     <!-- main logo start -->
                     <div class="logo inder">
-                        <a href="https://stips.cz/">
+                        <a href="{{url('/')}}">
                             <img src="{{url('/')}}/assets//main_logo.svg"
-                                 alt="Obchod na dárky a zážitky">
+                                 alt="{{__('front.logo_title')}}">
                         </a>
                     </div>
                     <!-- main logo end -->

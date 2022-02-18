@@ -41,9 +41,9 @@
     <link href="{{url('/')}}/global/css/components-rounded.css?v={{$script_date}}" id="style_components" rel="stylesheet" type="text/css">
 
     <link href="{{url('/')}}/global/css/plugins.css" rel="stylesheet" type="text/css">
-    <link href="{{url('/')}}/admin/layout3/css/layout.css" rel="stylesheet" type="text/css">
-    <link href="{{url('/')}}/admin/layout3/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color">
-    <link href="{{url('/')}}/admin/layout3/css/custom.css?v={{$script_date}}" rel="stylesheet" type="text/css">
+    <link href="{{url('/')}}/back/layout3/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="{{url('/')}}/back/layout3/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color">
+    <link href="{{url('/')}}/back/layout3/css/custom.css?v={{$script_date}}" rel="stylesheet" type="text/css">
     <!-- END THEME STYLES -->
 
     <link href="{{url('/')}}/css/openclose.css" rel="stylesheet" type="text/css">

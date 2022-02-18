@@ -4,12 +4,12 @@
      */
 
     $menu_admin_items_user = [
-        'title' => __('user.users'),
+        'title' => __('admin.users'),
         'route' => 'users.index',
     ];
 
     $menu_admin_items_role = [
-        'title' => __('role.roles'),
+        'title' => __('admin.roles'),
         'route' => 'roles.index',
     ];
 
@@ -19,7 +19,7 @@
     ];
 
     $menu_admin = [
-        'title' => __('global.admin').' <i class="fa fa-angle-down"></i>',
+        'title' => __('admin.admin').' <i class="fa fa-angle-down"></i>',
         'li_attr' => [
             'class' => 'menu-dropdown classic-menu-dropdown'
         ],
@@ -38,18 +38,18 @@
 
 
     $menu_page_items_page = [
-        'title' => __('page.pages'),
+        'title' => __('admin.pages'),
         'route' => 'page.index',
     ];
 
     $menu_page_items_post = [
-        'title' => __('post.posts'),
+        'title' => __('admin.posts'),
         'route' => 'post.index',
     ];
 
 
     $menu_page_items_category = [
-        'title' => __('category.categories'),
+        'title' => __('admin.categories'),
         'route' => 'category.index',
     ];
 
@@ -60,7 +60,7 @@
     ];
 
     $menu_pages = [
-        'title' => __('page.pages').' <i class="fa fa-angle-down"></i>',
+        'title' => __('admin.pages').' <i class="fa fa-angle-down"></i>',
         'li_attr' => [
             'class' => 'menu-dropdown classic-menu-dropdown'
         ],
@@ -79,22 +79,22 @@
 
 
     $menu_shop_items_product = [
-        'title' => __('shop.products'),
+        'title' => __('admin.products'),
         'route' => 'product.index',
     ];
 
     $menu_shop_items_product_cat = [
-        'title' => __('shop.product_cat'),
+        'title' => __('admin.product_cat'),
         'route' => 'product_cat.index',
     ];
 
     $menu_shop_items_prod_rel_tax = [
-        'title' => __('shop.prod_rel_tax'),
+        'title' => __('admin.prod_rel_tax'),
         'route' => 'prod_rel_tax.index',
     ];
 
     $menu_shop_items_feed_category = [
-        'title' => __('shop.feed_category'),
+        'title' => __('admin.feed_category'),
         'route' => 'feed_category.index',
     ];
 

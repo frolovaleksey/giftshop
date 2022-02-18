@@ -8,7 +8,7 @@ use App\Media;
 use App\Node;
 use Illuminate\Http\Request;
 
-class FieldController extends Controller
+class FieldController extends AdminController
 {
     public function getFields(Request $request, $type, $id=null)
     {

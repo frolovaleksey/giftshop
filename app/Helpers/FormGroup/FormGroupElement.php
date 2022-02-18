@@ -23,6 +23,7 @@ class FormGroupElement
     protected $media=false;
     protected $repeater=false;
     protected $relation = false;
+    protected $checkbox = false;
     protected $fieldObj=null; // App\Field
     protected $filableItem=null; /// App\Page  App\Post ...
 
@@ -56,6 +57,11 @@ class FormGroupElement
     public function isRelation()
     {
         return $this->relation;
+    }
+
+    public function isCheckbox()
+    {
+        return $this->checkbox;
     }
 
     public function setOptions($options)

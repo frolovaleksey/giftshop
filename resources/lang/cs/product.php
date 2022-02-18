@@ -2,7 +2,14 @@
 
 return [
 
+    // Admin part
+    'index_items' => 'Products',
+    'add_item' => 'Add product',
+    'edit_item' => 'Edit product',
+
+    // Front part
     'in_cart' => 'Vloženo',
+    'add_to_cart' => 'Vložit do košíku',
     'bought' => 'Využito',
     'sku' => 'Kód',
     'valid_till' => 'Platí do',
@@ -39,7 +46,11 @@ return [
     'experience_gallery' => 'Galerie zážitku',
     'faq_title' => 'Často kladené dotazy (FAQ)',
     'place_experience' => 'Místo konání zážitku',
-    'experience_evaluation' => 'hodnocení zážitku',
+    'experience_evaluation' => 'Hodnocení zážitku',
+    'you_might_interested' => 'Mohlo by vás zaujmout',
+    'top_experiences' => 'Top zážitky',
+    'search_here' => 'Hledejte zde',
+    'more_gifts' => 'Další dárky, zážitky a dobrodružství',
 
     'person_1' => '1 osoba',
     'person_2' => '2 osoby',

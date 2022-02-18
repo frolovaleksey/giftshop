@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-abstract class NodeController extends Controller
+abstract class NodeController extends AdminController
 {
     protected $nodeObj = null;
 

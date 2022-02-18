@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
-class CommentController extends Controller
+class CommentController extends AdminController
 {
     public function getTableComments(Request $request)
     {

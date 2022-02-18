@@ -49,6 +49,11 @@
                                 Comments
                             </a>
                         </li>
+                        <li>
+                            <a href="#tab_seo" data-toggle="tab" aria-expanded="false">
+                                SEO
+                            </a>
+                        </li>
                     </ul>
                     <div class="tab-content no-space">
 
@@ -85,6 +90,12 @@
                         <div class="tab-pane" id="tab_comments">
                             <div class="form-body">
                                 @include('admin.product.tabs.tab_comment')
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="tab_seo">
+                            <div class="form-body">
+                                @include('admin.product.tabs.tab_seo')
                             </div>
                         </div>
 
