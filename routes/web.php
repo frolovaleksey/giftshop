@@ -16,9 +16,6 @@ $localisationActive = false;
 if( !function_exists('call_routes')) {
     function call_routes()
     {
-
-
-
         $middleware = ['auth'];
 
         if(env('MAINTENANCE', true)){
@@ -73,6 +70,8 @@ if( !function_exists('call_routes')) {
 
         // Front
         Route::get('/', 'Front\PageController@homePage')->name('page.front.home');
+
+        Auth::routes();
 
         Route::get('{slug}', 'Front\PageController@show')->name('page.front.show');
 

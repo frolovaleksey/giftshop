@@ -5,6 +5,7 @@ namespace App;
 
 
 use App\Interfaces\MediaInterface;
+use App\Services\Pages\HomePage;
 use App\Traits\AuthorTrait;
 use App\Traits\FilableTrait;
 use App\Traits\FrontPageTrait;
@@ -33,6 +34,7 @@ abstract class Node extends Model implements MediaInterface
     protected static $singleTableTypeField = 'type';
     protected static $singleTableSubclasses = [
         Page::class,
+        HomePage::class,
         Post::class,
     ];
 
@@ -62,7 +64,5 @@ abstract class Node extends Model implements MediaInterface
     {
         return static::$singleTableType;
     }
-
-
 
 }

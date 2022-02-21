@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 
 
 use App\Page;
+use App\Services\Pages\HomePage;
 
 class PageController extends FrontController
 {
@@ -31,7 +32,7 @@ class PageController extends FrontController
 
     public function homePage()
     {
-        $webItem = Page::find( config('pages.home') );
-        return view('front.page.home', ['webItem' => $webItem]);
+        $webItem = HomePage::find( config('pages.home') );
+        return view('front.page.home.show', ['webItem' => $webItem]);
     }
 }

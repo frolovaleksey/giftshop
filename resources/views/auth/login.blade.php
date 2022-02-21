@@ -1,3 +1,9 @@
+@extends('front.login_tpl')
+
+@section('content')
+
+@endsection
+<?php /*
 @extends('layouts.auth')
 
 @section('content')
@@ -47,3 +53,4 @@
     <!-- END LOGIN FORM -->
 </div>
 @endsection
+*/ ?>

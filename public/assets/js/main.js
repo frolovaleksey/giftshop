@@ -27,6 +27,7 @@ function bb_ajax_error(){
 
 jQuery(function(){
     initCardCarousel();
+    initSlickCarouselHome();
 });
 
 function initCardCarousel() {
@@ -55,4 +56,17 @@ function initCardCarousel() {
         jQuery('.carousel_card .btn-prev').unbind('click');
         jQuery('.carousel_card .btn-next').unbind('click');
     })
+}
+
+function initSlickCarouselHome() {
+    jQuery('.main-slider').slick({
+        slidesToScroll: 1,
+        rows: 0,
+        slidesToShow: 1,
+        fade: true,
+        prevArrow: '<button class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+        dots: false,
+        autoplay: true
+    });
 }

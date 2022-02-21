@@ -5,6 +5,7 @@ namespace App;
 
 
 use App\Interfaces\FrontPageInterface;
+use App\Services\Pages\HomePage;
 use App\Traits\FrontPageTrait;
 
 class Page extends Node implements FrontPageInterface
@@ -14,7 +15,9 @@ class Page extends Node implements FrontPageInterface
     protected static $singleTableType = 'page';
     protected $table = 'nodes';
 
+
     public $templates = [
+        'home' => 'home',
         'base' => 'base',
         'text' => 'text',
     ];
@@ -52,27 +55,35 @@ class Page extends Node implements FrontPageInterface
 
     public static function initFields()
     {
-        $title   = new \App\Helpers\FormGroup\Text('title');
-        $title->setValidationRules(
-            'required'
-        );
-
-        $content = new \App\Helpers\FormGroup\Text('content');
-        $info    = new \App\Helpers\FormGroup\Text('info');
-        $decs    = new \App\Helpers\FormGroup\Text('decs');
-        $image    = new \App\Helpers\FormGroup\Image('image');
 
         // template => [field1, field2, ...]
         return [
+            'home' => [
+                'title' => \App\Helpers\FormGroup\Text::create('title')->setValidationRules('required'), // post title wp
+                'main_image' => \App\Helpers\FormGroup\Image::create('main_image'), // feautured image wp
+                'gallery' => \App\Helpers\FormGroup\Repeater::create('gallery')
+                    ->setFields(
+                        [
+                            'image' => \App\Helpers\FormGroup\Image::create('image'),
+                            'url' => \App\Helpers\FormGroup\Text::create('url')
+                        ]
+                    ),
+
+                // SEO
+                'seo_title' => \App\Helpers\FormGroup\Text::create('seo_title'),
+                'description' => \App\Helpers\FormGroup\Textarea::create('description'),
+                'keywords' => \App\Helpers\FormGroup\Text::create('keywords'),
+            ],
             'base' => [
-                'title' => $title,
-                'content' => $content,
-                'info' => $info,
-                'image' => $image,
+                'title' => \App\Helpers\FormGroup\Text::create('title')->setValidationRules('required'), // post title wp
+                'main_image' => \App\Helpers\FormGroup\Image::create('main_image'), // feautured image wp
+                'content' => \App\Helpers\FormGroup\Wysiwyg::create('content'),
+
             ],
             'text' => [
-                'title' => $title,
-                'decs' => $decs,
+                'title' => \App\Helpers\FormGroup\Text::create('title')->setValidationRules('required'), // post title wp
+                'main_image' => \App\Helpers\FormGroup\Image::create('main_image'), // feautured image wp
+                'content' => \App\Helpers\FormGroup\Wysiwyg::create('content'),
             ],
         ];
     }
@@ -81,5 +92,17 @@ class Page extends Node implements FrontPageInterface
     public static function frontView()
     {
         return 'front.page.show';
+    }
+
+    public static function findItem($id)
+    {
+        $pages = config('pages');
+        if($id == $pages['home']){
+            $item = HomePage::findOrFail($id);
+        }else{
+            $item = parent::findOrFail( $id );
+        }
+
+        return $item;
     }
 }
