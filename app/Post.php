@@ -49,15 +49,12 @@ class Post extends Node
 
     public static function initFields()
     {
-        $title   = new \App\Helpers\FormGroup\Text('title');
-        $title->setValidationRules(
-            'required'
-        );
-
         // template => [field1, field2, ...]
         return [
             'base' => [
-                'title' => $title,
+                'title' => \App\Helpers\FormGroup\Text::create('title')->setValidationRules('required'), // post title wp
+                'main_image' => \App\Helpers\FormGroup\Image::create('main_image'), // feautured image wp
+                'content' => \App\Helpers\FormGroup\Wysiwyg::create('content'),           // post content wp
             ],
         ];
     }

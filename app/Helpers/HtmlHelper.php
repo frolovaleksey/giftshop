@@ -161,7 +161,7 @@ class HtmlHelper
          * enter 'characters_excluding_spaces' or 'characters_including_spaces'. Otherwise, enter 'words'.
          * Do not translate into your own language.
          */
-        if ( strpos( _x( 'words', 'Word count type. Do not translate!' ), 'characters' ) === 0 && preg_match( '/^utf\-?8$/i', get_option( 'blog_charset' ) ) ) {
+        if ( strpos( __( 'Word count type. Do not translate!' ), 'characters' ) === 0 && preg_match( '/^utf\-?8$/i', get_option( 'blog_charset' ) ) ) {
             $text = trim( preg_replace( "/[\n\r\t ]+/", ' ', $text ), ' ' );
             preg_match_all( '/./u', $text, $words_array );
             $words_array = array_slice( $words_array[0], 0, $num_words + 1 );

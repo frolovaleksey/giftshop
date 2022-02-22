@@ -28,6 +28,7 @@ function bb_ajax_error(){
 jQuery(function(){
     initCardCarousel();
     initSlickCarouselHome();
+    initSlickSteps();
 });
 
 function initCardCarousel() {
@@ -69,4 +70,25 @@ function initSlickCarouselHome() {
         dots: false,
         autoplay: true
     });
+}
+
+function initSlickSteps() {
+    jQuery('.slick-krok').slick({
+        slidesToScroll: 1,
+        rows: 0,
+        slidesToShow: 2,
+        arrows: false,
+        dots: true,
+        dotsClass: 'slick-dots',
+        adaptiveHeight: true,
+        autoplay: true,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToScroll: 1,
+                slidesToShow: 1
+            }
+        }]
+    });
+
 }
