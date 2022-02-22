@@ -3,10 +3,13 @@
 namespace App;
 
 use App\Rules\UniqueTitleRule;
+use App\Traits\FrontPageTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Taxonomy
 {
+    use FrontPageTrait;
+
     protected static $singleTableType = 'category';
     protected $table = 'taxonomies';
 
@@ -21,6 +24,11 @@ class Category extends Taxonomy
 
 
     public $parrentable = true;
+
+    public function posts()
+    {
+        return $this->morphedByMany('App\Post', 'taxable', 'taxables', 'tax_id', 'taxable_id' );
+    }
 
     public function getFilesDirectory()
     {

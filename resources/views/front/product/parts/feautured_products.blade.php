@@ -1,7 +1,7 @@
 <div class="new-blog">
 
 @php
-$feauturedProducts = $webItem->getFeauturedProducts();
+$feauturedProducts = \App\Product::getFeauturedProducts();
 @endphp
 
 @if( $feauturedProducts->count() )

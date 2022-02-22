@@ -17,5 +17,6 @@ return [
     'read_more' => 'Čist dále',
     'blog' => 'Blog',
     'more_posts' => 'Další články',
+    'category' => 'Kategorie',
 
     ];

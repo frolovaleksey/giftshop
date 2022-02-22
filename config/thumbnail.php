@@ -21,4 +21,11 @@ return [
         'option' => 'crop',
         'quality' => 100,
     ],
+    'medium' => [
+        'width' => 300,
+        'height' => 169,
+        'option' => 'crop',
+        'quality' => 100,
+    ],
+
 ];

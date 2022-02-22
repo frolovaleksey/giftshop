@@ -50,6 +50,10 @@
     <link rel="stylesheet" href="{{asset('checkout.css')}}" media="all">
     <link rel="stylesheet" href="{{asset('checkout2.css')}}" media="all">
 
+    @if($webItem->getItemType() == 'post' )
+    <link rel="stylesheet" href="{{asset('blog.css')}}" media="all">
+    @endif
+
     <link rel="stylesheet" href="{{asset('style_new.css')}}" media="all">
 
 <?php /*

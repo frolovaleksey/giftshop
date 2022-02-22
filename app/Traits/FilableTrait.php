@@ -60,11 +60,19 @@ trait FilableTrait
 
     public function renderFields()
     {
+        /*
         $view = '';
         foreach ($this->getTemplateFields() as $field) {
             $field->setFieldObj($this->getField($field->getName()));
             $field->setValue(  $this->getFieldValue($field->getName())  );
             $view.= $field->get();
+        }
+        return $view;
+        */
+
+        $view = '';
+        foreach ($this->getTemplateFields() as $field) {
+            $view.= $this->renderField($field->getName());
         }
         return $view;
     }

@@ -37,9 +37,7 @@ $sale_price->setRequired()
 
 {!! $item->renderField('customproductsales') !!}
 
-
 {!! $item->renderField('faq') !!}
-
 
 {!! $item->renderField('upsell_product') !!}
 

@@ -312,6 +312,12 @@ class Product extends Model implements MediaInterface, PageInterface, FrontPageI
         return $onSale;
     }
 
+    public function isVisible()
+    {
+        // TODO
+        return true;
+    }
+
     public function isHot()
     {
         // TODO
@@ -371,16 +377,20 @@ class Product extends Model implements MediaInterface, PageInterface, FrontPageI
         return $products->unique('id');
     }
 
-    public function getFeauturedProducts()
+    public static function getFeauturedProducts($take=6)
     {
         $fields = Field::where('filabletable_type', 'App\Product')
             ->where('fkey', 'feautured')
             ->where('value', 1)
-            ->take(6)
-            ->get()
+            ->take($take)
+            ->inRandomOrder()
             ->pluck('filabletable_id')
         ;
 
-        return Product::with('fields')->find($fields);
+        $idsOrdered = $fields->implode(',');
+        return Product::with('fields')
+            ->whereIn('id', $fields)
+            ->orderByRaw("FIELD (id, $idsOrdered)")
+            ->get();
     }
 }

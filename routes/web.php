@@ -91,6 +91,10 @@ if( !function_exists('call_routes')) {
             Route::get('{slug}', 'Front\PostController@show')->name('post.front.show');
         });
 
+        Route::group(['prefix' => 'category'], function () {
+            Route::get('{slug}', 'Front\CategoryController@show')->name('category.front.show');
+        });
+
         Route::group(['prefix' => 'page'], function () {
             Route::get('{slug}', 'Front\PageController@show')->name('page.front.show');
         });

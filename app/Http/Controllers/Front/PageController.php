@@ -9,14 +9,7 @@ use App\Services\Pages\HomePage;
 
 class PageController extends FrontController
 {
-    protected $nodeObj = null;
 
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->nodeObj = $this->getNodeObj();
-    }
 
     protected function getNodeObj()
     {
