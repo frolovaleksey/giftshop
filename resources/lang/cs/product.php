@@ -31,10 +31,14 @@ return [
     'note' => 'Poznámka',
 
     'online_rservation' => 'Online rezervace',
+    'booking_without_calling' => 'Rezervace bez volaní a psaní',
     'gift_catalog' => 'Katalog dárků',
     'gift_card' => 'Dárková karta',
+    'choose_experience_gift' => 'Vybíráte zážitek jako dárek?',
     'e_voucher' => 'e-Voucher',
+    'use_experience_immediately' => 'Chcete zážitek ihned využít?',
     'gift_package' => 'Dárkové balení',
+    'each_gift_card' => 'ke každé Dárkové kartě',
     'easy_gift_exchange' => 'Lehká výměna dárku',
     'every_experience_verified' => 'Každý zážitek ověřen',
 
@@ -51,6 +55,12 @@ return [
     'top_experiences' => 'Top zážitky',
     'search_here' => 'Hledejte zde',
     'more_gifts' => 'Další dárky, zážitky a dobrodružství',
+
+    'action' => 'akce',
+    'hot' => 'hot',
+    'bestseller' => 'bestseller',
+    'best_price' => 'nejlepší cena',
+    'package_includes' => 'Balíček obsahuje',
 
     'person_1' => '1 osoba',
     'person_2' => '2 osoby',

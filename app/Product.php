@@ -234,6 +234,7 @@ class Product extends Model implements MediaInterface, PageInterface, FrontPageI
                 'cities' => \App\Helpers\FormGroup\Text::create('cities')->setLabel( 'Cities (next ","):' ), //eg-maplocations wp
                 'street' => \App\Helpers\FormGroup\Text::create('street')->setLabel( 'Street (next "and"):' ), //eg-belowlocation wp
                 'googlemap' => \App\Helpers\FormGroup\Textarea::create('googlemap'), //eg-googlemap wp
+                'single_product_description' => \App\Helpers\FormGroup\Text::create('single_product_description')->setLabel( 'Short description (next "|"):' ), //eg-single-product-description
 
                 // Specification
                 'course_experience' => \App\Helpers\FormGroup\Textarea::create('course_experience'), // prubeh_zazitku  wp
@@ -309,6 +310,24 @@ class Product extends Model implements MediaInterface, PageInterface, FrontPageI
         }
 
         return $onSale;
+    }
+
+    public function isHot()
+    {
+        // TODO
+        return true;
+    }
+
+    public function isBestseller()
+    {
+        // TODO
+        return true;
+    }
+
+    public function hasBestPrice()
+    {
+        // TODO
+        return true;
     }
 
     public function saleCurrency()

@@ -6,6 +6,8 @@
 
 {!! $item->renderField('hours') !!}
 
+{!! $item->renderField('single_product_description') !!}
+
 {!! $item->renderField('cities') !!}
 
 {!! $item->renderField('street') !!}

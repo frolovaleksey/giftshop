@@ -1,14 +1,10 @@
 <div class="top-filter-wrapper hide-mobile">
 
-
     <div class="woof "  data-shortcode="woof " data-redirect="" data-autosubmit="0" data-ajax-redraw="0">
-
 
         <!--- here is possible to drop html code which is never redraws by AJAX ---->
 
         <div class="woof_redraw_zone" data-woof-ver="1.2.4.2">
-
-
             <div data-css-class="woof_container_pa_region" class="woof_container woof_container_select woof_container_pa_region woof_container_1 woof_container_lokalita">
                 <div class="woof_container_overlay_item"></div>
                 <div class="woof_container_inner woof_container_inner_lokalita">
@@ -115,13 +111,6 @@
 
             </div>
 
-
-
-
         </div>
-
     </div>
-
-
-
 </div>

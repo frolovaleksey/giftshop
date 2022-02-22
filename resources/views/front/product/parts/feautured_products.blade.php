@@ -39,7 +39,7 @@ $feauturedProducts = $webItem->getFeauturedProducts();
                                 </div>
 
                                 <a href="{{$feauturedProduct->getUrl()}}"><h3 class="q3nevuup">{{$feauturedProduct->getFieldValue('title')}}</h3></a>
-                                <div class="count">Využito {{$feauturedProduct->getBuyCount()}}x</div>
+                                <div class="count">{{__('product.bought')}} {{$feauturedProduct->getBuyCount()}}x</div>
 
                                 @if ( Cart::hasProduct($feauturedProduct) )
                                     <a href="#" class="slider-button" >{{__('product.in_cart')}}</a>
