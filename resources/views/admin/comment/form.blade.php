@@ -2,6 +2,10 @@
 
     {!! \App\Helpers\FormGroup\Textarea::create('body')->get() !!}
 
+    {!! \App\Helpers\FormGroup\Select::create('status')
+    ->setOptions(\App\Comment::getStatusesOptions())
+    ->get() !!}
+
     {!! \App\Helpers\FormGroup\Select::create('rating')
     ->setOptions([1,2,3,4,5])
     ->get() !!}

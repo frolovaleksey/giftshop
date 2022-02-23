@@ -59,6 +59,7 @@ class CommentController extends AdminController
         $comment->body = $request->body;
         $comment->parent = $request->parent;
         $comment->rating = $request->rating;
+        $comment->status = $request->status;
         $comment->user_id = Auth::user()->id;
         $comment->date = Carbon::now();
         $comment->save();
@@ -86,6 +87,7 @@ class CommentController extends AdminController
 
         $comment->body = $request->body;
         $comment->rating = $request->rating;
+        $comment->status = $request->status;
 
         $comment->save();
 

@@ -54,6 +54,6 @@
         </div>
     </div>
 
-    @include('front.product.parts.feautured_products')
+    @include('front.blocks.feautured_products')
 
 @endsection

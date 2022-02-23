@@ -101,26 +101,28 @@
                 </div>
                 @endif
 
-                <?php /*
+
                 <!-- Main blog content -->
                 <div class="col-md-8 new-post-content blog-content">
-                    <?php the_content(); ?>
+                    {!! $webItem->getFieldValue('content') !!}
 
                     <div class="stips-blog-shares">
-                        <a class="fab fa-facebook-f fqkr2epc" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" target="_blank" rel="nofollow" title="Share on Facebook."></a>
-                        <a class="fab fa-twitter fqkr2epc" href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" target="_blank" rel="nofollow" title="Tweet this!"></a>
-                        <a class="fab fa-google-plus-g fqkr2epc" href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank" rel="nofollow"></a>
+                        <a class="fab fa-facebook-f fqkr2epc" href="http://www.facebook.com/sharer.php?u={{$webItem->getUrl()}}&amp;t={{$webItem->getFieldValue('title')}}" target="_blank" rel="nofollow" title="Share on Facebook."></a>
+                        <a class="fab fa-twitter fqkr2epc" href="http://twitter.com/home/?status={{$webItem->getFieldValue('title')}} - {{$webItem->getUrl()}}" target="_blank" rel="nofollow" title="Tweet this!"></a>
+                        <a class="fab fa-google-plus-g fqkr2epc" href="https://plus.google.com/share?url={{$webItem->getUrl()}}" target="_blank" rel="nofollow"></a>
                     </div>
 
-                    <?php comments_template('/blog-comments.php', true); ?>
+                    @include('front.comment.post_comments')
                 </div>
-                */ ?>
+
             </div>
         </div>
-
-
     </div>
 
+    <div class="new-blog">
+        @include('front.blocks.feautured_products')
 
+        @include('front.blocks.instagram_feed')
+    </div>
 
 @endsection

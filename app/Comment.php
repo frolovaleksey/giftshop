@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    protected static $statuses = [
+        'approved',
+        'pending',
+        'spam',
+    ];
+
     protected $dates = [
         'date'
     ];
@@ -20,5 +26,14 @@ class Comment extends Model
         return $this->belongsTo('App\User', 'user_id')->withDefault([
             'name' => '--'
         ]);
+    }
+
+    public static function getStatusesOptions()
+    {
+        $options = [];
+        foreach (self::$statuses as $status) {
+            $options[$status] = __('comment.'.$status);
+        };
+        return $options;
     }
 }

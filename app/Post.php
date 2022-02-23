@@ -6,11 +6,13 @@ namespace App;
 use App\Interfaces\FrontPageInterface;
 use App\Relations\HasTaxRelations;
 use App\Relations\TaxRelation;
+use App\Traits\CommentTrait;
 use App\Traits\FrontPageTrait;
 
 class Post extends Node implements FrontPageInterface
 {
     use FrontPageTrait;
+    use CommentTrait;
 
     protected static $singleTableType = 'post';
     protected $table = 'nodes';
@@ -40,7 +42,7 @@ class Post extends Node implements FrontPageInterface
 
     public static function getBaseViewFolder()
     {
-        return 'admin.basepage';
+        return 'admin.post';
     }
 
     public static function getBaseLoc()
@@ -60,6 +62,11 @@ class Post extends Node implements FrontPageInterface
                 'related_product' => \App\Helpers\FormGroup\Relation::create('related_product') // varianty_produktu_na_blog wp
                     ->setRelatedModel('App\Product')
                     ->setLabel('Related Products'),
+
+                // SEO
+                'seo_title' => \App\Helpers\FormGroup\Text::create('seo_title'),
+                'description' => \App\Helpers\FormGroup\Textarea::create('description'),
+                'keywords' => \App\Helpers\FormGroup\Text::create('keywords'),
             ],
         ];
     }

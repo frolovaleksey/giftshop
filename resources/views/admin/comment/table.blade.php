@@ -12,7 +12,7 @@
             <tr>
                 <td>
                     <p>{{$comment->body}}</p>
-                    <p>Rating: {{$comment->rating}} Author:{{$comment->author->name}} Id:{{$comment->id}}</p>
+                    <p>Rating: {{$comment->rating}} | Status: {{$comment->status}} | Author:{{$comment->author->name}} | Id:{{$comment->id}} </p>
 
 
                     <a target="_blank" href="{{route('comment.edit', ['comment' => $comment->id])}}" title="{{__('form.edit')}}"><span aria-hidden="true" class="icon-pencil"></span></a>
